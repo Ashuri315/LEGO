@@ -1,3 +1,6 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
 .btn-navbar{
     width: 40px;
     height: 34px;
@@ -8,4 +11,7 @@
 }
 .search{
     width: 40%;
+}
+.nav-animation:hover{
+    text-decoration: underline;
 }
