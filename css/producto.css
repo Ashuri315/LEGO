@@ -1,0 +1,8 @@
+.link-animation{
+    text-decoration: none;
+    color: black;
+
+}
+.link-animation:hover{
+    text-decoration: underline;
+}

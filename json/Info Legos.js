@@ -1,4 +1,4 @@
-[
+const legos=[
  {
   "Id": 1,
   "Nombre": "Notre-Dame de Paris",
@@ -15,7 +15,8 @@
   "Descripcion": "Experience every stage in the development of an iconic Paris landmark with the collectible LEGO® Architecture Notre-Dame de Paris building set for adults (21061). This architectural model kit takes you on a historic building journey beginning in 1163, when the first stone was laid, through architect Viollet-le-Duc’s redesign work in the 19th century to Notre-Dame’s majestic appearance before the fire of 2019.",
   "Calificacion": "4.8",
   "Cantidad": 15,
-  "Img": ["https:\/\/www.brickfanatics.com\/wp-content\/uploads\/2024\/05\/LEGO-Architecture-21061-Notre-Dame-de-Paris-3-1024x768.png", "https:\/\/static.wixstatic.com\/media\/f3ed07_54ee44f272e34efba16b942b2e5cca4b~mv2.webp"]
+  "Img": ["https://www.lego.com/cdn/cs/set/assets/bltfc5b67804768a899/21061_alt1.png?format=webply&fit=bounds&quality=70&width=800&height=800&dpr=1.5", 
+          "https://www.lego.com/cdn/cs/set/assets/blt25974a0c97248d6b/21061_Box5_v39.png?format=webply&fit=bounds&quality=70&width=800&height=800&dpr=1.5"]
  },
  {
   "Id": 2,
