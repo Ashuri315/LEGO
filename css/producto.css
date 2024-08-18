@@ -6,3 +6,25 @@
 .link-animation:hover{
     text-decoration: underline;
 }
+
+.container-img{
+    padding-top: 100%;
+    position: relative;
+    aspect-ratio: 1;
+}
+
+.container-img a img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.title-excesive{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}

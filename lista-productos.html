@@ -78,7 +78,10 @@
     <main class="container-fluid p-3">
         <!-- Inicio filtros -->
          <!-- <div class="d-flex"> -->
-            <div class="input-group mb-3 justify-content-center">          
+
+            
+            <!-- SEGUNDO FILTRO QUE NO FUNCIONO -->
+            <!-- <div class="input-group mb-3 justify-content-center">          
                 <input type="checkbox" class="btn-check input-group-text" name="options-base" id="option5" autocomplete="off" checked>
                 <label class="btn btn-outline-primary rounded-start" for="option5">Architecture</label>
     
@@ -87,10 +90,12 @@
     
                 <input type="checkbox" class="btn-check input-group-text" name="options-base" id="option7" autocomplete="off" checked>
                 <label class="btn btn-outline-primary" for="option7">Star Wars</label>
-            </div>
+            </div> -->
+
+
             <div class="input-group mb-4 ">
                 <!-- <label for="filter">Filter by category</label> -->
-                <select id="filter" class="form-select form-select-sm w-20">
+                <select id="filter" class="form-select form-select-sm w-20 fs-5">
                     <option value="all">All</option>
                     <!-- Opciones de estado se añadirán dinámicamente aquí -->
                 </select>
@@ -101,7 +106,7 @@
 
         <!-- Inicio card -->
         <div id="lego-list" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
-            <div class="col">
+            <div class="col product">
                 <div class="card shadow-sm text-center">
                     <!-- Inicio Carrusel -->
                     <div id="carouselExample" class="carousel slide">
@@ -112,13 +117,13 @@
                                 aria-label="Slide 2"></button>
                         </div>
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
+                            <div class="carousel-item active container-img">
                                 <a href="">
                                     <img src="img/image-not-found.jpg" class="d-block w-100" alt="Image not found">
                                 </a>
                             </div>
 
-                            <div class="carousel-item">
+                            <div class="carousel-item container-img">
                                 <a href="">
                                     <img src="img/image-not-found.jpg" class="d-block w-100" alt="Image not found">
                                 </a>
@@ -138,7 +143,7 @@
                     <!-- Fin carrusel -->
                     <a class="link-animation" href="">
                         <div class="card-header">
-                            <h4 class="card-title">Title Lego</h4>
+                            <h4 class="card-title title-excesive">Title Lego</h4>
                         </div>
                     </a>
 
