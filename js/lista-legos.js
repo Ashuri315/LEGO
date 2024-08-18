@@ -50,7 +50,7 @@ function detalleLego(id){
                         <div class="card-body">
                             <div class="d-flex justify-content-evenly">
                                 <p class="card-title">Item: ${lego.Modelo}</p>
-                                <p class="card-title">Review: ${lego.Calificacion}</p>
+                                <p class="card-title">Review: ${lego.Calificacion ? lego.Calificacion: 'No reviews yet'}</p>
                             </div>
                             <h1 class="card-title">$${lego.Precio}</h1>
                             <div class="d-grid gap-2">
