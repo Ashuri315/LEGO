@@ -1,5 +1,4 @@
 .link-animation{
-    text-decoration: none;
     color: black;
 
 }
@@ -13,7 +12,7 @@
     aspect-ratio: 1;
 }
 
-.container-img a img {
+.container-img img {
     position: absolute;
     top: 0;
     left: 0;
@@ -24,7 +23,7 @@
 
 }
 
-.container-img:hover a img{
+.container-img:hover img{
 	width: 100%;
     transform: scale(1.05);
 }

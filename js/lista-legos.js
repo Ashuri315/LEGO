@@ -1,6 +1,6 @@
 /* Funcion que agrega el id del lego a la ruta de la pagina */
 function detalleLego(id){
-    window.location.href = `detalle-lego.html?=${id}`;
+    window.location.href = `detalle-productos.html?id=${id}`;
 }
 
 /* Funcion que guarda todos los legos en las cards */
@@ -20,14 +20,12 @@ function detalleLego(id){
                             </div>
                             <div class="carousel-inner">
                                 <div class="carousel-item active container-img">
-                                    <a href="detalleLego(${lego.id})">
-                                        <img class="d-block w-100" alt="${lego.Nombre} Image" src="${lego.Img[0] ? lego.Img[0] : './img/image-not-found.jpg'}">
-                                    </a>
+                                        <img class="d-block w-100" alt="${lego.Nombre} Image" src="${lego.Img[0] ? lego.Img[0] : './img/image-not-found.jpg'}" onclick="detalleLego(${lego.Id})">
+
                                 </div>
                                 <div class="carousel-item container-img">
-                                    <a href="detalleLego(${lego.id})">
-                                        <img class="d-block w-100" alt="${lego.Nombre} Image" src="${lego.Img[1] ? lego.Img[1] : './img/image-not-found.jpg'}">
-                                    </a>
+                                        <img class="d-block w-100" alt="${lego.Nombre} Image" src="${lego.Img[1] ? lego.Img[1] : './img/image-not-found.jpg'}" onclick="detalleLego(${lego.Id})">
+          
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#${carouselId}"
@@ -42,11 +40,11 @@ function detalleLego(id){
                             </button>
                         </div>
                         <!-- Fin carrusel -->
-                        <a class="link-animation" href="detalleLego(${lego.id})">
+                       
                             <div class="card-header">
-                                <h4 class="card-title title-excesive">${lego.Nombre}</h4>
+                                <h4 class="card-title title-excesive link-animation" onclick="detalleLego(${lego.Id})">${lego.Nombre}</h4>
                             </div>
-                        </a>
+                        
                         <div class="card-body">
                             <div class="d-flex justify-content-evenly">
                                 <p class="card-title">Item: ${lego.Modelo}</p>
@@ -55,13 +53,14 @@ function detalleLego(id){
                             <h1 class="card-title">$${lego.Precio}</h1>
                             <div class="d-grid gap-2">
                                 <a href="">
-                                    <button type="button" class="btn btn-lg btn-primary" onclick="detalleLego(${lego.id})">Add to cart</button>
+                                    <button type="button" class="btn btn-lg btn-primary w-100" onclick="addToCart(this)" data-id="(${lego.id})">Add to cart</button>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>`;
             $('#lego-list').append(legoCard);
+            /* NOTA: el addToCart es como se debe llamar la funcion del js de compra (ver ejemplo de la profe) */
         });
     }
 
