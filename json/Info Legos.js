@@ -51,7 +51,7 @@ const legos=[
   "Anio Lanzamiento": 2021,
   "Descripcion": "Experience the magic of the world’s only LEGO® House with this amazing, brightly colored LEGO Architecture model, featuring 21 unique interlocking, brick-shaped rooms, transparent facade elements, multicolored roof, roof terraces and giant outdoor stairways. Remove the brick-shaped keystone roof section to access the interior public square, complete with a staircase and the LEGO Tree of Creativity. This highly detailed LEGO model has been designed to deliver a pleasant and rewarding building experience for all with an interest in architecture, travel, history and design, and makes a perfect display piece for the home or office.",
   "Calificacion": "4.5",
-  "Cantidad": 0,
+  "Cantidad": 7,
   "Img": ["https:\/\/media.cnn.com\/api\/v1\/images\/stellar\/prod\/190821121332-lego-test-3.jpg?q=w_1110,c_fill", "https:\/\/jaysbrickblog.com\/wp-content\/uploads\/2023\/10\/21037_alt3-1400x1050.jpg"]
  },
  {
@@ -177,7 +177,7 @@ const legos=[
   "Anio Lanzamiento": 2020,
   "Descripcion": "Nowhere on Earth compares to the majesty of the Colosseum of Rome. So, get ready to escape your everyday life as you take on the biggest ever LEGO® build (as at November 2020) yet. This epic 9,036-piece Colosseum model depicts each part of the famous structure in great detail. Authentic detailing shows the northern part of the outer wall’s facade and its iconic arches. The model features 3 storeys, adorned with columns of the Doric, Ionic and Corinthian orders while the attic is decorated with Corinthian pilasters.",
   "Calificacion": "4.5",
-  "Cantidad": 0,
+  "Cantidad": 7,
   "Img": ["https:\/\/www.lego.com\/cdn\/cs\/set\/assets\/blt26cc4dd7f5cf656e\/10276_alt1.jpg?format=webply&fit=bounds&quality=70&width=800&height=800&dpr=1.5", "https:\/\/www.lego.com\/cdn\/cs\/set\/assets\/blt256d4b7677c4bc86\/10276_alt14.jpg?format=webply&fit=bounds&quality=70&width=800&height=800&dpr=1.5"]
  },
  {
@@ -213,7 +213,7 @@ const legos=[
   "Anio Lanzamiento": 2023,
   "Descripcion": "Recreate some of Tokyo’s most famous buildings with this detailed LEGO® Architecture Skyline Collection 21051 desk toy. It’s a great souvenir for Tokyo visitors and an ideal gift for adults who live or have lived in Japan’s capital city or who dream of visiting. Even LEGO newcomers can zone out from busy lives and enjoy this relaxing building experience.Iconic buildingsThis toy construction set includes scale models of TOKYO SKYTREE, the world’s tallest freestanding tower, Tokyo Tower, Mode Gakuen Cocoon Tower and Tokyo Big Sight. The cherry-tree-filled Chidorigafuchi Park, a classic pagoda tower and Shibuya Crossing are also featured. Together on the baseplate with a ‘Tokyo’ nameplate, they create a compact, impactful display piece.Introducing LEGO Architecture…LEGO Architecture sets capture the essence of the world’s best-known buildings, monuments and cities. From iconic landmarks to city skyline models, there’s something for anyone interested in architecture, travel, history and design.",
   "Calificacion": "4.6",
-  "Cantidad": 0,
+  "Cantidad": 7,
   "Img": ["https:\/\/www.lego.com\/cdn\/cs\/set\/assets\/blt0b2057b44f21d3bb\/21051.jpg?format=webply&fit=bounds&quality=70&width=800&height=800&dpr=1.5", "https:\/\/www.lego.com\/cdn\/cs\/set\/assets\/blt73e5da5fad2c19f4\/21051_alt4.jpg?format=webply&fit=bounds&quality=70&width=800&height=800&dpr=1.5"]
  },
  {
@@ -411,7 +411,7 @@ const legos=[
   "Anio Lanzamiento": 2015,
   "Descripcion": "This is the AT-AT (75313) that every LEGO® Star Wars™ fan has been waiting for. This epic Ultimate Collector Series build-and-display model features posable legs and head, cannons with a realistic recoil action, rotating cannons, bomb-drop hatch and a hook to attach to Luke Skywalker’s line, just like in the Battle of Hoth.",
   "Calificacion": "4.2",
-  "Cantidad": 0,
+  "Cantidad": 7,
   "Img": ["https:\/\/www.lego.com\/cdn\/cs\/set\/assets\/blta7b7b825b6d4fc0a\/75313_Prod.png?format=webply&fit=bounds&quality=70&width=800&height=800&dpr=1.5", "https:\/\/www.lego.com\/cdn\/cs\/set\/assets\/blt705c9c053273f516\/75313_Box5_v29.jpg?format=webply&fit=bounds&quality=70&width=800&height=800&dpr=1.5"]
  },
  {
