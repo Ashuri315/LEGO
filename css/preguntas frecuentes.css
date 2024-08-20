@@ -1,18 +1,3 @@
-.container-img {
-    position: relative;
-    aspect-ratio: 1;
-    max-width: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.container-img img {
-    object-fit: contain;
-    max-width: 95%;
-    height: auto
-}
-
 .cajon-sombra {
     box-shadow: 0px 8px 16px #686868;
     border-radius: 8px;
@@ -20,4 +5,18 @@
     margin-right: 30px;
     border: 2px solid transparent;
 
+}
+
+.img-text-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.img-text-container img {
+    max-width: 100%;
+    height: auto;
+}
+.img-text-container .text {
+    flex: 1;
+    padding: 10px;
 }
