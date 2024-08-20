@@ -91,6 +91,7 @@ $(document).ready(function () {
             $("#High").text("High: " + lego.Altura)
             $("#Long").text("Long: " + lego.Ancho)
             $("#Deep").text("Deep: " + lego.Profundidad)
+            $("#instructions").html(`Here is also the <a href="${lego.Instrucciones}">set instructions</a>, enjoy!`)
 
             /* Resenias */
             $("#reviews").html('')
