@@ -1,0 +1,406 @@
+/* Estilos nuevos para el carrito */
+.smaller-input{
+    width: 100%;
+
+}
+
+
+
+
+
+
+
+
+html{
+	font-family: 'Poppins', sans-serif;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.carousel-item img {
+    height: 47vw; 
+    object-fit: cover;
+    width: 100%;
+}
+
+.heading-1 {
+    font-size: 1.7rem;
+    align-self: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.heading-2{
+    font-size: 1rem;
+    align-self: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    color: rgb(56, 121, 206);
+}
+
+.heading-3{
+    font-size: 1.3rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: rgb(0, 0, 0);
+}
+
+main{
+    padding-top: 35px;
+}
+p{
+    font-size: 1rem;
+    color: rgb(81, 81, 81);
+}
+
+
+
+/*////////////// H E A D E R + N A V B A R //////////////*/
+
+/*////////////// H E A D E R + N A V B A R //////////////*/
+
+
+
+
+/*////////////// C U E R P O ///////////////*/
+.contenedor {
+    margin-right: 60px;
+    margin-left: 60px;
+    align-items: center;
+}
+
+/*CARRITO DE COMPRAS*/
+.container-cart{
+    padding: 15px 0px;
+    margin-right: 45px;
+    margin-left: 45px;
+    margin-bottom: 45px;
+    align-items: center;
+    box-shadow: 0 8px 16px #0000004d;
+    border-radius: 8px; 
+    border: 2px solid transparent;
+    background-color: #f3f3f3;
+}
+
+.container-detalle-compra {
+    margin-right: 45px;
+    margin-left: 45px;
+    margin-bottom: 45px;
+}
+
+.separador-detalle {
+    box-shadow: 0 4px 8px #0000004d;
+    border-radius: 8px; 
+    border: 2px solid transparent;
+    padding: 15px; /* Añadido para asegurarse de que hay espacio interno */
+}
+
+.container-product {
+    border-bottom: 3px solid #dee2e6;
+    margin-top: 34px;
+}
+
+.value {
+    text-align: center;
+}
+
+.separador{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #b2b2b2;
+    justify-content: center;
+}
+
+
+
+.encabezado-input{
+    display: flex;
+    position: relative;
+}
+
+.encabezado-input img{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.ps-5 {
+    padding-left: 2.5rem; 
+}
+/*CARRITO DE COMPRAS*/
+
+/* ////////////CARACTERÍSTICAS///////////// */
+.contenedor-features {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+}
+
+.card-feature {
+    align-self: center;
+    text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1.5rem;
+	background-color: #ffffff;
+	border-radius: 1rem;
+	padding: 1.7rem 0;
+    box-shadow: 2px 5px 10px rgba(82, 82, 82, 0.3);
+    max-width: 100%;
+}
+
+.feature-content {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+/* ////////////CARACTERÍSTICAS///////////// */
+
+/* ////////////PRODUCTOS///////////// */
+
+
+.container {
+	margin: 0 auto;
+    transition: padding 0.3s ease;
+    padding: 20px;
+}
+
+/* Products */
+.container-products {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+	gap: 3rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+ /*No borrar esto*/
+.container-img{
+    padding-top: 100%;
+    position: relative;
+    aspect-ratio: 1;
+}
+
+.container-img a img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: all 0.3s;
+}
+
+.title-excesive{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.link-animation{
+    text-decoration: none;
+    color: black;
+
+}
+.link-animation:hover{
+    text-decoration: underline;
+}
+
+/*No borrar esto*/
+
+
+.container-img:hover img{
+	width: 100%;
+    transform: scale(1.05);
+}
+
+
+/* ////////////PRODUCTOS///////////// */
+
+/* ////////////GRAFICO + IMÁGENES REFERENTES///////////// */
+
+@keyframes exampleAnimation {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Aplica la animación al div */
+.animate {
+    animation-name: exampleAnimation;
+    view-timeline-axis: block;
+    animation-range: entry 25% cover 30%;
+    animation-duration: 2s; /* Duración de la animación */
+    animation-timing-function: ease-in-out; /* Efecto de ritmo */
+    animation-fill-mode: both; /* Mantener el estado final de la animación */
+  }
+
+/* ////////////GRAFICO + IMÁGENES REFERENTES///////////// */
+
+
+/*////////////// C U E R P O ///////////////*/
+
+
+/*////////////// F O O T E R //////////////*/
+.pie-pagina{
+    width: 100%;
+    background-color: #047049;
+    
+}
+
+.pie-pagina .grupo-1{
+    width: 100%;
+    gap: 30px;
+    justify-content: center;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.pie-pagina .grupo-1 .box{
+
+}
+
+.logo-footer{
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    height: 100%;           
+}
+
+.logo-footer img {
+    max-width: 100%; /* Ajusta el tamaño de la imagen */
+}
+
+.pie-pagina .grupo-1 .box figure{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+}
+.pie-pagina .logo{
+
+    width: 100%;
+}
+
+.pie-pagina .grupo-1 .box{
+
+    padding-top: 30px;
+    height: 100%;
+    width: 100%;
+}
+
+.pie-pagina .grupo-1 .box h2{
+    color: #e9e9e9;
+    margin-bottom:  25px;
+    font-size: 20px;
+}
+
+.pie-pagina .grupo-1 .box p{
+    color: #e9e9e9;
+    margin-bottom: 10px;
+    
+}
+
+.pie-pagina .grupo-1 .box a{
+    text-decoration: none;
+    
+}
+
+.pie-pagina .grupo-1 .box a:hover{
+    text-decoration: underline;
+    text-decoration-color: #e9e9e9;
+    
+}
+
+.pie-pagina .grupo-1 .box .red-social{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    border-top: 3px solid #034c31;
+}
+
+.pie-pagina .grupo-1 .red-social a{
+    /*display: inline-block;*/
+    text-decoration: none;
+    margin: 15px;
+    transition: all 0.3s ease;
+}
+
+.pie-pagina .grupo-1 .red-social a img{
+
+    width: 40px;
+    height: 40px;
+    transition: all 0.3s ease;
+}
+
+.pie-pagina .grupo-1 .red-social a img:hover {
+    transform: scale(1.15);
+}
+
+.pie-pagina .grupo-2{
+    background-color: #034c31;
+    padding: 15px 10px;
+    text-align: center;
+    color: white;
+}
+
+
+
+/*@media screen and (max-width: 800px){
+    .pie-pagina .grupo-1{
+    width: 90%;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 30px;
+    padding: 35px 0px;
+    }
+
+
+
+    .pie-pagina .grupo-1 .logo{
+        width: 50%;
+        align-self: center;
+
+    }
+    
+}*/
+
+/*////////////// F O O T E R //////////////
+
+////////////// RESPONSIVE //////////////*/
+@media (max-width: 1024px) {
+    .contenedor-features {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
+    }
+}
+
+@media (max-width: 600px) {
+    .contenedor-features {
+        grid-template-columns: repeat(1, 1fr); /* Dos columnas en pantallas medianas */
+    }
+}
+/*////////////// F O O T E R ////////////// */

@@ -9,7 +9,7 @@ function detalleLego(id){
         data.forEach(lego => {
             const carouselId = `carouselExample${lego.Modelo}`;
             const legoCard = `<div class="col">
-                    <div class="card shadow-sm text-center">
+                    <div class="card shadow-sm text-center lego-item">
                         <!-- Inicio Carrusel -->
                         <div id="${carouselId}" class="carousel slide">
                             <div class="carousel-indicators">
@@ -42,7 +42,7 @@ function detalleLego(id){
                         <!-- Fin carrusel -->
                        
                             <div class="card-header">
-                                <h4 class="card-title title-excesive link-animation" onclick="detalleLego(${lego.Id})">${lego.Nombre}</h4>
+                                <h4 class="card-title title-excesive link-animation lego-name" onclick="detalleLego(${lego.Id})">${lego.Nombre}</h4>
                             </div>
                         
                         <div class="card-body">
@@ -50,17 +50,14 @@ function detalleLego(id){
                                 <p class="card-title">Item: ${lego.Modelo}</p>
                                 <p class="card-title">Review: ${lego.Calificacion ? lego.Calificacion: 'No reviews yet'}</p>
                             </div>
-                            <h1 class="card-title">$${lego.Precio}</h1>
+                            <h1 class="card-title lego-price">&dollar;${lego.Precio}</h1>
                             <div class="d-grid gap-2">
-                                <a href="">
-                                    <button type="button" class="btn btn-lg btn-primary w-100" onclick="addToCart(this)" data-id="(${lego.id})">Add to cart</button>
-                                </a>
+                                    <button id="cart-button" type="button" class="btn btn-lg btn-primary w-100" onclick="addToCart(${lego.Id})" data-id="">Add to cart</button>
                             </div>
                         </div>
                     </div>
                 </div>`;
             $('#lego-list').append(legoCard);
-            /* NOTA: el addToCart es como se debe llamar la funcion del js de compra (ver ejemplo de la profe) */
         });
     }
 
