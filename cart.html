@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,45 +11,41 @@
 
     <link rel="stylesheet" href="css/estilo-principal.css">
 </head>
+
 <body>
     <main>
         <div class="container-cart">
             <h1 class="heading-1">Products</h1>
-            <div class="container" id="products">
+            <div class="container" id="detail">
                 <!--Inicio 1er producto-->
                 <div class="container-product">
                     <div class="row gx-0">
                         <!-- Nombre del producto -->
-                        <div class="col-md-4 col-6 mb-4" style="align-self: center;">
+                        <div class="col-sm-4 col-md-3 col-6 mb-4" style="align-self: center;">
                             <h2 class="heading-2">Product</h2>
                             <div class="p-3 value">LEGO set</div>
                         </div>
                         <!-- Cantidad -->
-                        <div class="col-md-2 col-6 mb-4" style="align-self: center;">
+                        <div class="col-sm-4 col-md-3 col-6 mb-4" style="align-self: center;">
                             <h2 class="heading-2">Quantity</h2>
-                            <!-- <div class="btn-group" role="group" aria-label="Default button group">
-                                <button type="button" class="btn btn-outline-secondary px-3">-</button>
-                                <button type="button" class=" btn-outline-secondary px-3">0</button>
-                                <button type="button" class="btn btn-outline-secondary px-3">+</button>
-                            </div> -->
                             <div class="btn-group p-3 value mx-auto" role="group" aria-label="Default button group">
-                                <button id="decrement" type="button" class="btn btn-outline-secondary px-3" disabled>-</button>
+                                <button id="decrement" type="button" class="btn btn-outline-secondary px-3">-</button>
                                 <input class="smaller-input text-center" type="text" id="counter" value="1" readonly>
                                 <button id="increment" type="button" class="btn btn-outline-secondary px-3">+</button>
                             </div>
                         </div>
                         <!-- Precio -->
-                        <div class="col-md-2 col-6 mb-4" style="align-self: center;">
+                        <div class="col-sm-2 col-md-2 col-6 mb-4" style="align-self: center;">
                             <h2 class="heading-2">Price</h2>
                             <div class="p-3 value">&dollar;0.00</div>
                         </div>
                         <!-- subtotal-->
-                        <div class="col-md-2 col-6 mb-4" style="align-self: center;">
+                        <div class="col-sm-2 col-md-2 col-6 mb-4" style="align-self: center;">
                             <h2 class="heading-2">Subtotal</h2>
                             <div class="p-3 value">&dollar;0.00</div>
                         </div>
                         <!--botón de basura-->
-                        <div class="col-md-2 col-12 text-center" style="padding-top: 20px;">
+                        <div class="col-sm-3 col-md-2 col-12 text-center" style="padding-top: 20px;">
                             <button type="button" class="btn btn-success btn-lg" style="margin-bottom: 20px;">
                                 <i class="fa-solid fa-trash"></i>
                             </button>
@@ -60,18 +57,30 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 text-end">
-                        <h5 class="mb-0" style="margin-right: 70px;">Total</h5>
-                      </div>
-                      <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-center">
-                        <h5 class="mb-0" id="total-compra">&dollar;0.00</h5>
-                      </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center">
+                        <h5 class="mb-0">Items:</h5>
+                    </div>
+
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center">
+                        <h5 class="mb-0">Total:</h5>
+                    </div>
+
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center">
+                        <h5 class="mb-0" id="total-items">0</h5>
+                    </div>
+
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center">
+                        <h5 class="mb-0" id="total-compra">&dollar;0</h5>
+                    </div>
+
+                              
                 </div>
+                          
             </div>
         </div>
         <!--Final de la lista de los productos-->
 
-        <div class="container-cart">
+        <div id="contenedor-formulario" class="container-cart">
             <div class="container">
                 <div class="row g-2">
                     <form action="" id="formulario-compra">
@@ -81,17 +90,22 @@
                                 <h2 class="heading-3">Choose an option</h2>
                                 <div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" checked name="tipo-entrega" id="postal" value="option1">
+                                        <input class="form-check-input" type="radio" checked name="tipo-entrega"
+                                            id="postal" value="option1">
                                         <label class="form-check-label" for="postal">Postal Delivery</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="tipo-entrega" id="store" value="option2">
+                                        <input class="form-check-input" type="radio" name="tipo-entrega" id="store"
+                                            value="option2">
                                         <label class="form-check-label" for="store">Pick up in store</label>
                                     </div>
                                 </div>
-                                <label for="delivery-number" class="form-label text-center" id="delivery-label">Insert your postal delivery number:</label>
-                                <input type="text" id="delivery-number" class="form-control text-center fs-5 centered-input" maxlength="6">
-                                <p id="postal-warning" style="color:red; visibility: hidden;">Invalid delivery number</p>
+                                <label for="delivery-number" class="form-label text-center" id="delivery-label">Insert
+                                    your postal delivery number:</label>
+                                <input type="text" id="delivery-number"
+                                    class="form-control text-center fs-5 centered-input" maxlength="6">
+                                <p id="postal-warning" style="color:red; visibility: hidden;">Invalid delivery number
+                                </p>
                             </div>
                         </div>
 
@@ -102,33 +116,40 @@
                                     <div class="col-12 col-md-6 col-6 mb-6" id="numero-tarjeta">
                                         <label for="card-number" class="form-label text-center">Card number</label>
                                         <div class="encabezado-input">
-                                            <input type="text" id="card-number" class="form-control text-center fs-5" maxlength="12">
-                                            <img src="img/cart/credit-card.png" alt="" style="float: inline-end" id="card-image" class="position-absolute">
+                                            <input type="text" id="card-number" class="form-control text-center fs-5"
+                                                maxlength="12">
+                                            <img src="img/cart/credit-card.png" alt="" style="float: inline-end"
+                                                id="card-image" class="position-absolute">
                                         </div>
-                                        <p id="card-warning" style="color:red; visibility:hidden;">Invalid (at least 16 numbers)</p>
+                                        <p id="card-warning" style="color:red; visibility:hidden;">Invalid (at least 16
+                                            numbers)</p>
                                     </div>
 
                                     <div class="col-12 col-md-6 col-6 mb-6">
                                         <label for="titular" class="form-label">Titular name</label>
                                         <input type="text" id="titular" class="form-control text-center fs-5">
-                                        <p id="titular-warning" style="color:red; visibility: hidden;">Invalid titular name</p>
-                                    </div>   
+                                        <p id="titular-warning" style="color:red; visibility: hidden;">Invalid titular
+                                            name</p>
+                                    </div>
 
                                     <div class="col-12 col-md-6 col-6 mb-6">
                                         <label for="CVC" class="form-label">CVC</label>
-                                        <input type="text" id="CVC" class="form-control text-center w-50 fs-5" maxlength="3" placeholder="XXX">
+                                        <input type="text" id="CVC" class="form-control text-center w-50 fs-5"
+                                            maxlength="3" placeholder="XXX">
                                         <p id="cvc-warning" style="color:red; visibility: hidden;">Invalid CVC.</p>
                                     </div>
 
                                     <div class="col-12 col-md-6 col-6 mb-6">
                                         <label for="expiry" class="form-label">Expiration date</label>
-                                        <input type="text" id="expiry" class="form-control text-center w-50 fs-5" placeholder="MM/YY" maxlength="5">
-                                        <p id="expiry-warning" style="color:red; visibility: hidden;">Wrong format. Try MM/YY</p>
+                                        <input type="text" id="expiry" class="form-control text-center w-50 fs-5"
+                                            placeholder="MM/YY" maxlength="5">
+                                        <p id="expiry-warning" style="color:red; visibility: hidden;">Wrong format. Try
+                                            MM/YY</p>
                                     </div>
-                                    
+
                                     <div class="col-12 col-md-12 col-12 mb-12 text-end" style="margin-top: 30px;">
                                         <button type="submit" class="btn btn-dark btn-xl">Purchase</button>
-                                    </div> 
+                                    </div>
 
                                 </div>
                             </div>
@@ -139,13 +160,25 @@
         </div>
     </main>
     <script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous"></script>
-   <!-- Boostrap -->
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-   integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-   crossorigin="anonymous"></script>
+    <!-- Boostrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous">
+    </script>
     <script src="js/cart.js"></script>
     <script src="json/Info Legos.js"></script>
     <script src="js/compra.js"></script>
     <script src="js/notify.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            showDetailShop()
+            updateButtons()
+        })
+    </script>
 </body>
+
 </html>

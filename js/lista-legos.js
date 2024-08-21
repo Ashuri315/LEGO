@@ -1,14 +1,16 @@
 /* Funcion que agrega el id del lego a la ruta de la pagina */
-function detalleLego(id){
+function detalleLego(id) {
     window.location.href = `detalle-productos.html?id=${id}`;
 }
 
+
+
 /* Funcion que guarda todos los legos en las cards */
-    function displayLegos(data){
-        $("#lego-list").html('');
-        data.forEach(lego => {
-            const carouselId = `carouselExample${lego.Modelo}`;
-            const legoCard = `<div class="col">
+function displayLegos(data) {
+    $("#lego-list").html('');
+    data.forEach(lego => {
+        const carouselId = `carouselExample${lego.Modelo}`;
+        const legoCard = `<div class="col">
                     <div class="card shadow-sm text-center lego-item">
                         <!-- Inicio Carrusel -->
                         <div id="${carouselId}" class="carousel slide">
@@ -48,27 +50,60 @@ function detalleLego(id){
                         <div class="card-body">
                             <div class="d-flex justify-content-evenly">
                                 <p class="card-title">Item: ${lego.Modelo}</p>
-                                <p class="card-title">Review: ${lego.Calificacion ? lego.Calificacion: 'No reviews yet'}</p>
+                                <p class="card-title">Review: ${lego.Calificacion ? lego.Calificacion : 'No reviews yet'}</p>
                             </div>
                             <h1 class="card-title lego-price">&dollar;${lego.Precio}</h1>
                             <div class="d-grid gap-2">
-                                    <button id="cart-button" type="button" class="btn btn-lg btn-primary w-100" onclick="addToCart(${lego.Id})" data-id="">Add to cart</button>
+                                    <button id="${lego.Id}" type="button" class="btn btn-lg btn-primary w-100" onclick="addToCart(${lego.Id})" data-id="">Add to cart</button>
                             </div>
                         </div>
                     </div>
                 </div>`;
-            $('#lego-list').append(legoCard);
-        });
+        $('#lego-list').append(legoCard);
+        LimiteBoton(lego)
+    });
+}
+
+/* Funcion para revisar el local storage cada vez que se hace refresh */
+function LimiteBoton(element) {
+    let cartArray = new Array()
+    if (localStorage.getItem('compra')) {
+        cartArray = JSON.parse(localStorage.getItem('compra'))
+    }
+    if (cartArray.length > 0) {
+        let item = cartArray.findIndex((lego) => lego.id == element.Id)
+
+        if (item != -1) {
+            if (cartArray[item].cantidad == element.Cantidad) {
+                DesabilitarBoton(element.Id)
+            }
+            if (cartArray[item].cantidad == 0) {
+                DesabilitarBoton(element.Id)
+            }
+
+        }
     }
 
+}
+
+/* habilitar boton o no de carrito*/
+function DesabilitarBoton(item) {
+    $(`#${item}`).attr("disabled", true);
+    $(`#${item}`).text("Limit exceeded");
+}
+function HabilitarBoton(item) {
+    $(`#${item}`).attr("disabled", true);
+    $(`#${item}`).text("Limit exceeded");
+}
+
 /* Funcion para mostrar las opciones de filtro por categoria */
-function displayStatus(){
+function displayStatus() {
     var select = $('#filter');
     var Estado = [];
 
     /* Obtener los estado UNICOS */
-    $.each(legos, function(index, lego) {
-        $.each(lego.Estado, function(index, status) {
+    $.each(legos, function (index, lego) {
+        $.each(lego.Estado, function (index, status) {
             if ($.inArray(status, Estado) === -1) {
                 Estado.push(status)
                 select.append('<option value="' + status + '">' + status + '</option>');
@@ -78,28 +113,28 @@ function displayStatus(){
 }
 
 
-    
+
 
 /* Funcion que carga los legos de forma dinamica */
 /* Con JQuery */
-$(document).ready(function() {
+$(document).ready(function () {
     displayLegos(legos)
 
     /* Logica para desplegar los legocards filtrados por estado */
     displayStatus()
-    $('#filter').change(function(){
+    $('#filter').change(function () {
         var status = $(this).val();
         var filteredLegos;
         if (status === 'all') {
             filteredLegos = legos
-            
+
         } else {
-            filteredLegos = legos.filter(function(lego) {
+            filteredLegos = legos.filter(function (lego) {
                 return lego.Estado.includes(status);
             });
         }
         displayLegos(filteredLegos);
     })
 
-    
+
 });

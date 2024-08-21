@@ -29,6 +29,13 @@ document.addEventListener('DOMContentLoaded', function() {
     inputPostal.addEventListener('input', function(){
         restrictLetters(inputPostal);
     });
+
+    //Nombre del titular
+
+    const titularInput = document.getElementById('titular');
+    titularInput.addEventListener('input', function(){
+        restricNumbers(titularInput);
+    });
     
 });
 
@@ -39,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     const inputExpiry = document.getElementById('expiry');
     inputExpiry.addEventListener('input', verificaExpiracion);
-    
+
     inputExpiry.addEventListener('focus', function() {
         let cursorPos = this.value.length;
         this.setSelectionRange(cursorPos, cursorPos);
@@ -232,16 +239,107 @@ function verificarLongitud(){
     if (codigo.length === 16 || codigo.length === 0) {
         // Longitud es 0 o exactamente 16
         cardWarning.style.visibility = "hidden";
-    } else if (codigo.length < 16) {
+    } else if (codigo.length < 16 && codigo.length > 0 ) {
         // Longitud es menor a 16
         cardWarning.style.visibility = "visible";
+        cardWarning.textContent = "Invalid card number (min 16 numbers)";
     } else {
         // Longitud es mayor a 16
         cardWarning.style.visibility = "hidden";
-    }
+    }
 }
 
 function restrictLetters(input) {
     // Elimina todas las letras, incluyendo ñ
     input.value = input.value.replace(/[^\d]/g, '');
 }
+
+function restricNumbers(input) {
+    // Reemplaza cualquier número en el contenido del input con una cadena vacía
+    input.value = input.value.replace(/[0-9]/g, '');
+}
+
+document.getElementById('formulario-compra').addEventListener('submit', function(event) {
+    const cardWarning = document.getElementById('card-warning');
+    const cardNumber = document.getElementById('card-number');
+
+    const titularWarning = document.getElementById('titular-warning');
+    const titularName = document.getElementById('titular');
+
+    const cvcWarning = document.getElementById('cvc-warning');
+    const cvc = document.getElementById('CVC');
+
+    const expiryWarning = document.getElementById('expiry-warning');
+    const expiryDate = document.getElementById('expiry');
+
+    const postalRadio = document.getElementById('postal');
+    const postalNumber = document.getElementById('delivery-number')
+    const postalWarning = document.getElementById('postal-warning');
+
+    if(cardWarning.style.visibility === "visible"){
+        event.preventDefault();
+        cardNumber.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }else if(cardNumber.value.length === 0){
+        event.preventDefault();
+        cardWarning.style.visibility = "visible";
+        cardWarning.textContent = 'Insert the card number';
+    }
+
+    if(titularWarning.style.visibility === "visible"){
+        event.preventDefault();
+        titularName.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }else if(titularName.value.length === 0){
+        event.preventDefault();
+        titularWarning.style.visibility = "visible";
+        titularWarning.textContent = 'Insert the titular name';
+    }
+
+    if(cvcWarning.style.visibility === "visible"){
+        event.preventDefault();
+        cvc.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }else if(cvc.value.length === 0){
+        event.preventDefault();
+        cvcWarning.style.visibility = "visible";
+        cvcWarning.textContent = 'Insert CVC number';
+    }
+
+    if(expiryWarning.style.visibility === "visible"){
+        event.preventDefault();
+        expiryDate.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }else if(expiryDate.value.length === 0){
+        event.preventDefault();
+        expiryWarning.style.visibility = "visible";
+        expiryWarning.textContent = 'Insert the expiry date';
+    }
+
+    if(postalRadio.checked){
+        if(postalWarning.style.visibility === "visible"){
+            event.preventDefault();
+            postalNumber.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }else if(postalNumber.value.length === 0){
+            event.preventDefault();
+            postalWarning.style.visibility = "visible";
+            postalWarning.textContent = 'Insert the delivery number';
+        }
+        
+    }
+
+});
+
+///////////////PARA HACER QUE EL FORMULARIO APAREZCA Y DESAPAREZCA CUANDO SE TIENE 0 O $ ////////////////
+const totalCompra = document.getElementById('total-compra');
+const contenedorForm = document.getElementById('contenedor-formulario');
+
+function actualizarVisibilidadForm() {
+    const contenido = totalCompra.textContent.trim();
+    if (contenido === '$0' || contenido === '$' || contenido === '$0.00') {
+        contenedorForm.style.display = 'none';
+    } else {
+        contenedorForm.style.display = 'block';
+    }
+}
+const observer = new MutationObserver(actualizarVisibilidadForm);
+
+observer.observe(totalCompra, { childList: true, subtree: true });
+
+actualizarVisibilidadForm();
