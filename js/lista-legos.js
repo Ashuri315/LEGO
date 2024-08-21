@@ -54,7 +54,7 @@ function displayLegos(data) {
                             </div>
                             <h1 class="card-title lego-price">&dollar;${lego.Precio}</h1>
                             <div class="d-grid gap-2">
-                                    <button id="${lego.Id}" type="button" class="btn btn-lg btn-primary w-100" onclick="addToCart(${lego.Id})" data-id="">Add to cart</button>
+                                    <button id="${lego.Id}" type="button" class="btn btn-lg btn-primary w-100" onclick="addToCart(${lego.Id})">Add to cart</button>
                             </div>
                         </div>
                     </div>

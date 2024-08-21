@@ -59,6 +59,14 @@ function removeCartItem(idElement) {
     showDetailShop()
 }
 
+function removePurchase(){
+    if (localStorage.getItem('compra')) {
+        localStorage.removeItem('compra');
+        showDetailShop()
+        $.notify("Purchase deleted from the cart", "error")
+    }
+}
+
 /* Funciones y codigo para el contador INICIO*/
 function updateButtons() {
     var cart = JSON.parse(localStorage.getItem('compra'))

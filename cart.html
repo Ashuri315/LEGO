@@ -10,6 +10,8 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/estilo-principal.css">
+    <link rel="stylesheet" href="css/carrito.css">
+
 </head>
 
 <body>
@@ -84,73 +86,76 @@
             <div class="container">
                 <div class="row g-2">
                     <form action="" id="formulario-compra">
-                        <div class="col-12 col-md-12 col-12 mb-12 ">
-                            <div class="separador justify-content-center" style="text-align: center;">
-                                <h1 class="heading-1">Delivery options:</h1>
-                                <h2 class="heading-3">Choose an option</h2>
-                                <div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" checked name="tipo-entrega"
-                                            id="postal" value="option1">
-                                        <label class="form-check-label" for="postal">Postal Delivery</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="tipo-entrega" id="store"
-                                            value="option2">
-                                        <label class="form-check-label" for="store">Pick up in store</label>
+                        <div class="col-12 col-md-12 col-12 mb-12">
+                            <div class="justify-content-center" style="text-align: center;">
+                                <div class="contenedor">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6 col-6 mb-6">
+                                            <h2 class="heading-3">Choose the shipping method</h2>
+                                            <div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" checked name="tipo-entrega" id="postal" value="option1">
+                                                    <label class="form-check-label" for="postal">Postal Delivery</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="tipo-entrega" id="store" value="option2">
+                                                    <label class="form-check-label" for="store">Pick up in store</label>
+                                                </div>
+                                            </div>
+                                            <label for="delivery-number" class="form-label text-center pt-2" id="delivery-label">Insert your postal delivery number:</label>
+                                            <input type="text" id="delivery-number" class="text-center form-control fs-5 centered-input" maxlength="6">
+                                            <p id="postal-warning" style="color:red; display: none;">Invalid delivery number</p>
+                                            
+                                        </div>
+                                       
+                                        <div class="col-12 col-md-6 col-6 mb-6">
+                                            <h2 class="heading-3">Choose the payment method</h2>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" checked name="tipo-pago" id="card-pay" value="option1">
+                                                    <label class="form-check-label" for="card-pay">Card</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="tipo-pago" id="cash-pay" value="option2">
+                                                    <label class="form-check-label" for="cash-pay">Cash</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
                                     </div>
                                 </div>
-                                <label for="delivery-number" class="form-label text-center" id="delivery-label">Insert
-                                    your postal delivery number:</label>
-                                <input type="text" id="delivery-number"
-                                    class="form-control text-center fs-5 centered-input" maxlength="6">
-                                <p id="postal-warning" style="color:red; visibility: hidden;">Invalid delivery number
-                                </p>
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-12 col-12 mb-12">
-                            <div class="container">
+                        <div class="col-12 col-md-12 col-12 mb-12 separador mt-5" id="formulario-tarjeta">
+                            <div class="container ">
                                 <div class="row">
 
                                     <div class="col-12 col-md-6 col-6 mb-6" id="numero-tarjeta">
                                         <label for="card-number" class="form-label text-center">Card number</label>
                                         <div class="encabezado-input">
-                                            <input type="text" id="card-number" class="form-control text-center fs-5"
-                                                maxlength="12">
-                                            <img src="img/cart/credit-card.png" alt="" style="float: inline-end"
-                                                id="card-image" class="position-absolute">
+                                            <input type="text" id="card-number" class="form-control text-center fs-5" maxlength="16">
+                                            <img src="img/cart/credit-card.png" alt="" style="float: inline-end" id="card-image" class="position-absolute">
                                         </div>
-                                        <p id="card-warning" style="color:red; visibility:hidden;">Invalid (at least 16
-                                            numbers)</p>
+                                        <p id="card-warning" style="color:red; visibility:hidden;">Invalid card number. Min: 16 numbers</p>
                                     </div>
 
                                     <div class="col-12 col-md-6 col-6 mb-6">
                                         <label for="titular" class="form-label">Titular name</label>
                                         <input type="text" id="titular" class="form-control text-center fs-5">
-                                        <p id="titular-warning" style="color:red; visibility: hidden;">Invalid titular
-                                            name</p>
-                                    </div>
+                                        <p id="titular-warning" style="color:red; visibility: hidden;">Invalid titular name</p>
+                                    </div>   
 
                                     <div class="col-12 col-md-6 col-6 mb-6">
                                         <label for="CVC" class="form-label">CVC</label>
-                                        <input type="text" id="CVC" class="form-control text-center w-50 fs-5"
-                                            maxlength="3" placeholder="XXX">
+                                        <input type="text" id="CVC" class="form-control text-center w-50 fs-5" maxlength="3" placeholder="XXX">
                                         <p id="cvc-warning" style="color:red; visibility: hidden;">Invalid CVC.</p>
                                     </div>
 
                                     <div class="col-12 col-md-6 col-6 mb-6">
                                         <label for="expiry" class="form-label">Expiration date</label>
-                                        <input type="text" id="expiry" class="form-control text-center w-50 fs-5"
-                                            placeholder="MM/YY" maxlength="5">
-                                        <p id="expiry-warning" style="color:red; visibility: hidden;">Wrong format. Try
-                                            MM/YY</p>
+                                        <input type="text" id="expiry" class="form-control text-center w-50 fs-5" placeholder="MM/YY" maxlength="5">
+                                        <p id="expiry-warning" style="color:red; visibility: hidden;">Wrong format. Try MM/YY</p>
                                     </div>
-
-                                    <div class="col-12 col-md-12 col-12 mb-12 text-end" style="margin-top: 30px;">
-                                        <button type="submit" class="btn btn-dark btn-xl">Purchase</button>
-                                    </div>
-
                                 </div>
                             </div>
                         </div>

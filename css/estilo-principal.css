@@ -4,13 +4,6 @@
 
 }
 
-
-
-
-
-
-
-
 html{
 	font-family: 'Poppins', sans-serif;
 }
@@ -75,66 +68,6 @@ p{
     align-items: center;
 }
 
-/*CARRITO DE COMPRAS*/
-.container-cart{
-    padding: 15px 0px;
-    margin-right: 45px;
-    margin-left: 45px;
-    margin-bottom: 45px;
-    align-items: center;
-    box-shadow: 0 8px 16px #0000004d;
-    border-radius: 8px; 
-    border: 2px solid transparent;
-    background-color: #f3f3f3;
-}
-
-.container-detalle-compra {
-    margin-right: 45px;
-    margin-left: 45px;
-    margin-bottom: 45px;
-}
-
-.separador-detalle {
-    box-shadow: 0 4px 8px #0000004d;
-    border-radius: 8px; 
-    border: 2px solid transparent;
-    padding: 15px; /* Añadido para asegurarse de que hay espacio interno */
-}
-
-.container-product {
-    border-bottom: 3px solid #dee2e6;
-    margin-top: 34px;
-}
-
-.value {
-    text-align: center;
-}
-
-.separador{
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #b2b2b2;
-    justify-content: center;
-}
-
-
-
-.encabezado-input{
-    display: flex;
-    position: relative;
-}
-
-.encabezado-input img{
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-}
-
-.ps-5 {
-    padding-left: 2.5rem; 
-}
 /*CARRITO DE COMPRAS*/
 
 /* ////////////CARACTERÍSTICAS///////////// */
@@ -369,25 +302,6 @@ p{
     color: white;
 }
 
-
-
-/*@media screen and (max-width: 800px){
-    .pie-pagina .grupo-1{
-    width: 90%;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 30px;
-    padding: 35px 0px;
-    }
-
-
-
-    .pie-pagina .grupo-1 .logo{
-        width: 50%;
-        align-self: center;
-
-    }
-    
-}*/
 
 /*////////////// F O O T E R //////////////
 

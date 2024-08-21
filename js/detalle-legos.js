@@ -39,7 +39,7 @@ $(document).ready(function () {
             }
             var stars = generateStars(lego.Calificacion)
             $("#rating-container").append(stars)
-            var calification = `<b id="Calification">${lego.Calificacion ? lego.Calificacion: 'No reviews yet'}</b>`
+            var calification = `<b id="Calification">${lego.Calificacion ? lego.Calificacion : 'No reviews yet'}</b>`
             $("#rating-container").append(calification)
 
             $("#Name").text(lego.Nombre)
@@ -114,8 +114,44 @@ $(document).ready(function () {
             }
 
             $("#cart-option").html('');
-            const cartLink = `<button type="button" class="btn btn-lg btn-primary px-5" onclick="addToCart(this)" data-id="(${legoId})">Add to cart</button>`
+            const cartLink = `<id="${legoId}"button type="button" class="btn btn-lg btn-primary px-5" onclick="addToCart(${legoId})">Add to cart</button>`
             $("#cart-option").append(cartLink);
+
+            LimiteBoton(lego)
         }
+
+
+        /* Funcion para revisar el local storage cada vez que se hace refresh */
+        /* function LimiteBoton(element) {
+            let cartArray = new Array()
+            if (localStorage.getItem('compra')) {
+                cartArray = JSON.parse(localStorage.getItem('compra'))
+            }
+            if (cartArray.length > 0) {
+                let item = cartArray.findIndex((lego) => lego.id == element.Id)
+
+                if (item != -1) {
+                    if (cartArray[item].cantidad == element.Cantidad) {
+                        DesabilitarBoton()
+                    }
+                    if (cartArray[item].cantidad == 0) {
+                        DesabilitarBoton()
+                    }
+
+                }
+            }
+
+        }
+        function DesabilitarBoton() {
+            $(`#item`).attr("disabled", true);
+            $(`#item`).text("Limit exceeded");
+        }
+        function HabilitarBoton(item) {
+            $(`#${item}`).attr("disabled", true);
+            $(`#${item}`).text("Limit exceeded");
+        } */
     }
+
+
+
 })
