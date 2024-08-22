@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     </div>
                                     <a href="lista-productos.html"><button type="button" class="btn btn-dark btn-lg"><i class="fa-solid fa-cart-shopping"></i>  Go shopping</button></a>
                                 </div> `
-        $('#detail').html(contenedorImagen);
+        $('#carrito').html(contenedorImagen);
     }
 
     function actualizarVisibilidadForm() {

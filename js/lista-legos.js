@@ -66,18 +66,18 @@ function displayLegos(data) {
 
 /* Funcion para revisar el local storage cada vez que se hace refresh */
 function LimiteBoton(element) {
-    let cartArray = new Array()
+    let searchArray = new Array()
     if (localStorage.getItem('compra')) {
-        cartArray = JSON.parse(localStorage.getItem('compra'))
+        searchArray = JSON.parse(localStorage.getItem('compra'))
     }
-    if (cartArray.length > 0) {
-        let item = cartArray.findIndex((lego) => lego.id == element.Id)
+    if (searchArray.length > 0) {
+        let item = searchArray.findIndex((lego) => lego.id == element.Id)
 
         if (item != -1) {
-            if (cartArray[item].cantidad >= element.Cantidad) {
+            if (searchArray[item].cantidad >= element.Cantidad) {
                 DesabilitarBoton(element.Id)
             }
-            if (cartArray[item].cantidad == 0) {
+            if (searchArray[item].cantidad == 0) {
                 DesabilitarBoton(element.Id)
             }
 
@@ -112,9 +112,20 @@ function displayStatus() {
 }
 
 
+/* NOSE SIRVE */
+/* function searchResult(){
+    const resultadosBusqueda = JSON.parse(localStorage.getItem('resultadosBusqueda'));
+    if(resultadosBusqueda){
+        displayLegos(resultadosBusqueda)
+    }
+} */
+
+
 /* Funcion que carga los legos de forma dinamica */
 /* Con JQuery */
 $(document).ready(function () {
+
+    
 
    
     displayLegos(legos)

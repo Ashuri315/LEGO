@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var myChart = echarts.init(chartDom);
 
   function loadChartData() {
-      fetch('/json/grafico.json')
+      fetch('https://ashuri315.github.io/graphicLEGO/JSON_Graphic.json')
           .then(response => {
               if (!response.ok) {
                   throw new Error('Network response was not ok');

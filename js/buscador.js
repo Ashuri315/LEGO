@@ -1,12 +1,17 @@
 
 /* Para buscar los items */
-function search(){
-    /* window.location.href = 'https://example.com/nueva-pagina';
-    const URLParams = new URLSearchParams(window.location.search)
-    const legoId = URLParams.set("") */
+function search() {
+
     const searching = $('#searchInput').val().toLowerCase();
     const resultados = legos.filter(lego => lego.Nombre.toLowerCase().includes(searching));
 
-    displayLegos(resultados) 
-    $('#filter').val('')
+    if (resultados == [] || resultados === 0) {
+        return;
+    } else {
+        displayLegos(resultados)
+        /* NO SIRVE */
+       /*  localStorage.setItem('busqueda', JSON.stringify(resultados))
+        
+         window.location.href = 'https://ashuri315.github.io/LEGO/lista-productos.html';  */
+    }
 }
