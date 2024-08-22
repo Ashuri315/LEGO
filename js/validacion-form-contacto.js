@@ -1,45 +1,4 @@
-var mapa = L.map('map').setView([9.940017,-84.143373], 17);
 
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(mapa);
-
-L.marker([9.940017,-84.143373]).addTo(mapa)
-    .bindPopup("LEGO")
-    .openPopup();
-
-L.circle([9.940017,-84.143373], {
-    color: 'lightblue',
-    fillColor: 'pink',
-    fillOpacity: 0.5,
-    radius: 100
-}).addTo(mapa);
-
-
-    const ageCalculator = (date) =>{
-        const currentDate = new Date();
-        const currentDay = parseInt(currentDate.getDate());
-        const currentMonth = parseInt(currentDate.getMonth()) + 1;
-        const currentYear = parseInt(currentDate.getFullYear());
-
-        const birthYear = parseInt(String(date).substring(0, 4));
-        const birthMonth = parseInt(String(date).substring(5, 7));
-        const birthDay = parseInt(String(date).substring(8, 10));
-
-        let edad = currentYear - birthYear;
-
-        if(currentMonth > birthMonth){
-            edad--;
-        }else if(currentMonth === birthMonth){
-            if(currentDay > birthDay){
-                edad--;
-            }
-        }
-
-        return edad;
-
-    }
 
     document.getElementById('form').addEventListener('submit', function(event) {
         const name = document.getElementById('name');
