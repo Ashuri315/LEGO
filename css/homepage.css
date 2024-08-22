@@ -1,0 +1,187 @@
+.imagen-carousel{
+    height: 47vw; 
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Para el producto */
+.link-animation{
+    color: black;
+}
+
+.link-animation:hover{
+    text-decoration: underline;
+}
+
+.container-img{
+    padding-top: 100%;
+    position: relative;
+    aspect-ratio: 1;
+}
+
+.container-img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: all 0.3s;
+
+}
+
+.container-img:hover img{
+	width: 100%;
+    transform: scale(1.05);
+}
+
+.title-excesive{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+/* Fin para el producto */
+
+.heading-1 {
+    font-size: 1.7rem;
+    align-self: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.heading-2{
+    font-size: 1rem;
+    align-self: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    color: rgb(56, 121, 206);
+}
+
+.heading-3{
+    font-size: 1.3rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: rgb(0, 0, 0);
+}
+
+main{
+    padding-top: 35px;
+}
+
+.contenedor {
+padding: 20px;
+ align-items: center;
+}
+
+/*Características*/
+.contenedor-features {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+}
+
+.card-feature {
+    align-self: center;
+    text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1.5rem;
+	background-color: #ffffff;
+	border-radius: 1rem;
+	padding: 1.7rem 0;
+    box-shadow: 2px 5px 10px rgba(82, 82, 82, 0.3);
+    max-width: 100%;
+}
+
+.feature-content {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+/*Características*/
+/*Para cartas de productos*/
+.container-img{
+    padding-top: 100%;
+    position: relative;
+    aspect-ratio: 1;
+}
+
+.container-img a img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: all 0.3s;
+}
+
+.title-excesive{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.link-animation{
+    text-decoration: none;
+    color: black;
+
+}
+.link-animation:hover{
+    text-decoration: underline;
+}
+
+.container-img:hover img{
+	width: 100%;
+    transform: scale(1.05);
+}
+
+/*Para cartas de productos*/
+
+/*GRÁFICO ANIMATION*/
+@keyframes exampleAnimation {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Aplica la animación al div */
+.animate {
+    animation-name: exampleAnimation;
+    view-timeline-axis: block;
+    animation-range: entry 25% cover 30%;
+    animation-duration: 2s; /* Duración de la animación */
+    animation-timing-function: ease-in-out; /* Efecto de ritmo */
+    animation-fill-mode: both; /* Mantener el estado final de la animación */
+  }
+
+/*GRÁFICO ANIMATION*/
+
+/*Media Queries para las característicaas*/
+@media (max-width: 1024px) {
+    .contenedor-features {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
+    }
+}
+
+@media (max-width: 600px) {
+    .contenedor-features {
+        grid-template-columns: repeat(1, 1fr); /* Dos columnas en pantallas medianas */
+    }
+}
+/*Media Queries para las característicaas*/
+

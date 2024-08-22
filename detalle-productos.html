@@ -16,6 +16,72 @@
 </head>
 
 <body>
+    <!-- As a heading -->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark p-3">
+            <div class="container-fluid">
+
+                <a class="navbar-brand" href="index.html">
+                    <img src="./img/logo-lego.png" alt="Logo" width="70" height="70">
+                </a>
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-evenly" id="navbarSupportedContent" width="100">
+                    <div class="d-flex ms-auto mt-2" role="search">
+                        <input id="searchInput" class="form-control me-2" type="search" placeholder="Search"
+                            aria-label="Search">
+                        <button id="searchButton" onclick="search()" class="btn btn-primary" type="submit">
+                            <img class="mb-1" src="./icons/Search.svg" alt="Search" width="36" height="30">
+                        </button>
+                    </div>
+
+                    <ul class="navbar-nav ms-auto mb-2 mt-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">
+                                <img class="btn-navbar" src="./icons/profile.svg" alt="Profile">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="cart.html">
+                                <img class="btn-navbar" src="./icons/shopping-cart.svg" alt="shopping-cart">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-warning p-3 fs-5">
+        <div class="collapse navbar-collapse container-fluid justify-content-center">
+            <ul class="navbar-nav justify-content-evenly" style="width: 75%;">
+                <li class="nav-item">
+                    <a class="nav-link active nav-animation" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active nav-animation" href="lista-productos.html">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active nav-animation" href="preguntas-frecuentes.html">Help</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active nav-animation" href="acerca-de.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active nav-animation" href="contacto.html">Contact Us</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
     <main class="container-fluid p-3" id="detalle">
         <div class="row">
 
@@ -54,13 +120,14 @@
             <div class="col-sm-7">
                 <ul class="list-group ">
                     <li class="list-group-item d-flex gap-1 align-items-center bigger-list" id="status">
-                        
+
                         <span class=" text-bg-danger p-2">Status</span>
                         <span class=" text-bg-danger p-2">Status</span>
                         <span class=" text-bg-danger p-2">Status</span>
                     </li>
-                    <li id="rating-container" class="list-group-item d-flex gap-1 align-items-center bigger-list" id="categories">
-                        
+                    <li id="rating-container" class="list-group-item d-flex gap-1 align-items-center bigger-list"
+                        id="categories">
+
                         <i class="fa-solid fa-star fa-xl" style="color: #FFD43B;"></i>
                         <i class="fa-solid fa-star fa-xl" style="color: #FFD43B;"></i>
                         <i class="fa-solid fa-star fa-xl" style="color: #FFD43B;"></i>
@@ -78,18 +145,26 @@
                     </li>
                     <li class="list-group-item d-inline-flex gap-4 align-items-center">
                         <div class="btn-group" role="group" aria-label="Default button group">
-                            <button id="decrement" type="button" class="btn btn-outline-secondary px-3" disabled>-</button>
+                            <button id="decrement" type="button" class="btn btn-outline-secondary px-3"
+                                disabled>-</button>
                             <input class="smaller-input text-center" type="text" id="counter" value="1" readonly>
                             <button id="increment" type="button" class="btn btn-outline-secondary px-3">+</button>
                         </div>
                         <div>
                             <b id="amount">Limit</b>
-                            <i class="fa-solid fa-circle-info" style="color: #74C0FC;"></i>
+                            <i class="fa-solid fa-circle-info" style="color: #74C0FC;" data-bs-toggle="tooltip"
+                                data-bs-placement="right"
+                                data-bs-title="We restrict the limit based on our stock. 
+                                If you’ve already reached that limit through the cart you won't be able to ask for more items.">
+                            </i>
+
                         </div>
+
                     </li>
 
                     <li id="cart-option" class="list-group-item text-start">
-                            <button type="button" class="btn btn-lg btn-primary px-5">Add to cart</button>
+                        <button type="button" class="btn btn-lg btn-primary px-5" onclick="addToCartDetail()">Add to
+                            cart</button>
                     </li>
                 </ul>
                 <div class="row row-cols-md-3 same-size">
@@ -147,7 +222,9 @@
                             <li id="Long">Long:</li>
                             <li id="Deep">Deep:</li>
                         </ul>
-                        <p class="fs-5">Please read our <a target="_blank" href="documents/Deliveries and returns policies.pdf">Deliveries and returns</a> policies before buying your order</p>
+                        <p class="fs-5">Please read our <a target="_blank"
+                                href="documents/Deliveries and returns policies.pdf">Deliveries and returns</a> policies
+                            before buying your order</p>
                         <p id="instructions" class="fs-5"> Here is also the <a href="">set instructions</a>, enjoy!</p>
                     </div>
                 </div>
@@ -165,7 +242,8 @@
                     <div id="reviews" class="accordion-body">
                         <hr><br>
                         <p class="fs-5">Fecha</p>
-                        <div id="rating-comment-container" class="list-group-item d-flex gap-1 align-items-center bigger-list m-0" id="categories">
+                        <div id="rating-comment-container"
+                            class="list-group-item d-flex gap-1 align-items-center bigger-list m-0" id="categories">
                             <i class="fa-solid fa-star fa-xl" style="color: #FFD43B;"></i>
                             <i class="fa-solid fa-star fa-xl" style="color: #FFD43B;"></i>
                             <i class="fa-solid fa-star fa-xl" style="color: #FFD43B;"></i>
@@ -185,22 +263,103 @@
 
     </main>
 
+    <footer class="pie-pagina">
+        <div class="grupo-1">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                <div class="logo-footer">
+                  <a href="index.html">
+                    <img src="img/logo-lego.png" alt="Logo-lego" style="align-self: center;">
+                  </a>
+                </div>
+              </div>
+    
+              <div class="col-12 col-sm-4 col-md-3 col-lg-3 col-xl-3">
+                <div class="box">
+                  <h2 class="fs-4">Contact us</h2>
+                  <p class="fs-5">lego@gmail.com</p>
+                  <p class="fs-5">506 6030 4366</p>
+                  <p class="fs-5">506 8599 2121</p>
+                </div>
+              </div>
+    
+              <div class="col-12 col-sm-4 col-md-3 col-lg-3 col-xl-3">
+                <div class="box">
+                  <h2 class="fs-4">Discover the magic of LEGO</h2>
+                  <a href="lista-productos.html">
+                    <p class="fs-5">Product catalog</p>
+                  </a>
+                  <a href="documents/Deliveries and returns policies.pdf">
+                    <p class="fs-5">Terms and conditions</p>
+                  </a>
+                  <a href="preguntas-frecuentes.html">
+                    <p class="fs-5">Frecuently questions</p>
+                  </a>
+                </div>
+              </div>
+    
+              <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <div class="box">
+                  <h2 class="fs-4">Thanks for being part of LEGO</h2>
+                  <p class="fs-5">Building a better world, one brick at a time. Discover endless creativity with LEGO sets
+                    and
+                    let your imagination soar.
+                    Thank you for being part of the LEGO community. We strive to inspire creativity and fun through play.
+                  </p>
+                </div>
+              </div>
+    
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div class="box">
+                  <div class="red-social">
+                    <a href="https://www.facebook.com/LEGO/">
+                      <img src="img/inicio/iconos-social-media/facebook (2).png" alt="facebook-logo">
+                    </a>
+                    <a href="https://www.instagram.com/lego/">
+                      <img src="img/inicio/iconos-social-media/instagram (1).png" alt="instagram-logo">
+                    </a>
+                    <a href="https://t.me/s/nerdcube/2712">
+                      <img src="img/inicio/iconos-social-media/telegram.png" alt="telegram-logo">
+                    </a>
+                    <a href="https://www.tiktok.com/@lego">
+                      <img src="img/inicio/iconos-social-media/tiktok.png" alt="tiktok-logo">
+                    </a>
+                  </div>
+                </div>
+              </div>
+    
+            </div>
+          </div> <!--Fin row-->
+        </div>
+        <div class="grupo-2">
+          <small>&copy; 2024 <b>Lego</b> - All rights reserved </small>
+        </div>
+      </footer>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <!-- Boostrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.js"
-        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous"></script>
     <!-- Js -->
     <script src="json/Info Legos.js"></script>
     <script src="json/Reseñas.js"></script>
-    
+
     <script src="js/detalle-legos.js"></script>
+    <script src="js/compra-en-detalle.js"></script>
     <script src="js/notify.min.js"></script>
-    
+
+    <!-- Inicializa los tooltips -->
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+
 </body>
 
 </html>

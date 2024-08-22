@@ -1,83 +1,128 @@
-///////////////////////EVENT LISTENER/////////////////////////
-
 document.addEventListener('DOMContentLoaded', function() {
-    //Número de tarjeta
+    // Declaración de variables y elementos de la interfaz
     const cardNumber = document.getElementById('card-number');
-    
-    cardNumber.addEventListener('input', verificaTarjeta);
-
-    cardNumber.addEventListener('input', function() {
-        restrictLetters(cardNumber);
-    });
-
-    // CVC
-
     const cvc = document.getElementById('CVC');
-
-    cvc.addEventListener('input', function() {
-        restrictLetters(cvc);
-    });
-
-    //Vencimiento
     const expiryDate = document.getElementById('expiry');
-
-    expiryDate.addEventListener('input', function() {
-        restrictLetters(expiryDate);
-    });
-    //delivery number
     const inputPostal = document.getElementById('delivery-number');
-    inputPostal.addEventListener('input', function(){
-        restrictLetters(inputPostal);
-    });
-
-    //Nombre del titular
-
     const titularInput = document.getElementById('titular');
-    titularInput.addEventListener('input', function(){
-        restricNumbers(titularInput);
-    });
-    
-});
+    const postalRadio = document.getElementById('postal');
+    const storeRadio = document.getElementById('store');
+    const cardPayRadio = document.getElementById('card-pay');
+    const cashPayRadio = document.getElementById('cash*pay');
 
-/////////////////////////////////////////////////////////////////
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    const inputExpiry = document.getElementById('expiry');
-    inputExpiry.addEventListener('input', verificaExpiracion);
-
-    inputExpiry.addEventListener('focus', function() {
-        let cursorPos = this.value.length;
-        this.setSelectionRange(cursorPos, cursorPos);
-    });
-});
-
-/////////////////////////////////////////////////////////////////
-
-document.addEventListener('DOMContentLoaded', function() {
-    const inputExpiry = document.getElementById('expiry');
-    inputExpiry.addEventListener('input', verificaLargoExpiración);
-});
-
-/////////////////////////////////////////////////////////////////////////////////////
-
-document.addEventListener('DOMContentLoaded', function() {
-    const opcionesEntrega = document.querySelectorAll('input[name="tipo-entrega"]'); //REFERENCIA BOTONES DE RADIO, SE GUARDAN EN LISTA
-    const inputPostal = document.getElementById('delivery-number');
+    const formTarjeta = document.getElementById('formulario-tarjeta');
     const postalWarning = document.getElementById('postal-warning');
     const deliveryInstruction = document.getElementById('delivery-label');
-    const formTarjeta = document.getElementById('formulario-tarjeta')
+    const cardWarning = document.getElementById('card-warning');
+    const cvcWarning = document.getElementById('cvc-warning');
+    const titularWarning = document.getElementById('titular-warning');
+    const expiryWarning = document.getElementById('expiry-warning');
+    const totalCompra = document.getElementById('total-compra');
+    const contenedorForm = document.getElementById('contenedor-formulario');
 
-    // Función para actualizar la visibilidad del campo de postal
+    actualizaFormTarjeta();
+    updateFieldVisibility();
+    actualizarVisibilidadForm();
+    
+    // Funciones auxiliares
+    function restrictLetters(input) {
+        input.value = input.value.replace(/[^\d]/g, '');
+    }
+
+    function restricNumbers(input) {
+        input.value = input.value.replace(/[0-9]/g, '');
+    }
+
+    function verificaTarjeta() {
+        const numero = cardNumber.value.replace(/\s+/g, '');
+        const apiURL = `https://data.handyapi.com/bin/${numero}`;
+
+        fetch(apiURL)
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.json();
+            })
+            .then(data => {
+                let imgSrc = 'img/cart/credit-card.png';
+                if (data.Scheme === 'MASTERCARD') imgSrc = 'img/cart/Mastercard.png';
+                if (data.Scheme === 'VISA') imgSrc = 'img/cart/VISA.png';
+                document.getElementById('card-image').src = imgSrc;
+            })
+            .catch(() => {
+                document.getElementById('card-image').src = 'img/cart/credit-card.png';
+            });
+    }
+
+    function verificaExpiracion() {
+        let value = expiryDate.value.replace(/\D/g, '');
+        if (value.length < 2) {
+            expiryDate.value = value;
+            return;
+        }
+        if (value.length > 2 && value.length <= 4) {
+            value = value.slice(0, 2) + '/' + value.slice(2);
+        } else if (value.length > 4) {
+            value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4);
+        }
+        if (expiryDate.value.length > 0 && expiryDate.value[expiryDate.value.length - 1] === '/') {
+            expiryDate.value = expiryDate.value.slice(0, -1);
+        }
+        expiryDate.value = value;
+    }
+
+    function verificaLargoExpiración() {
+        if (expiryDate.value.length === 5 || expiryDate.value.length === 0) {
+            expiryWarning.style.visibility = "hidden";
+        } else {
+            expiryWarning.style.visibility = "visible";
+        }
+    }
+
+    function verificaCodigoPostal() {
+        if (inputPostal.value.trim().length === 6 || inputPostal.value.length === 0) {
+            postalWarning.style.display = "none";
+        } else {
+            postalWarning.style.display = "block";
+        }
+    }
+
+    function verificarTitular() {
+        const titularPattern = /^([A-Za-zÁÉÍÓÚÑáéíóúñ]+)\s([A-Za-zÁÉÍÓÚÑáéíóúñ]+\s)?[A-Za-zÁÉÍÓÚÑáéíóúñ]+\s[A-Za-zÁÉÍÓÚÑáéíóúñ]+$/;
+        if (titularInput.value.trim().length === 0 || !titularPattern.test(titularInput.value.trim())) {
+            titularWarning.style.visibility = "visible";
+        } else {
+            titularWarning.style.visibility = "hidden";
+        }
+    }
+
+    function verificarCVC() {
+        const cvcTexto = cvc.value.replace(/\s+/g, '');
+        if (cvcTexto.length === 3 || cvcTexto.length === 0) {
+            cvcWarning.style.visibility = "hidden";
+        } else {
+            cvcWarning.style.visibility = "visible";
+        }
+    }
+
+    function verificarLongitud() {
+        const expectedSrc = new URL('img/cart/credit-card.png', window.location.origin).href;
+        const codigo = cardNumber.value.replace(/\s+/g, '');
+        if (codigo.length === 0 || codigo.length === 16 && !(document.getElementById('card-image').src.includes(expectedSrc))) {
+            cardWarning.style.visibility = "hidden";
+        }else{
+            cardWarning.style.visibility = "visible";
+        }
+
+    }
+
     function updateFieldVisibility() {
-        if (document.getElementById('postal').checked) {
+        const postalChecked = document.getElementById('postal').checked;
+        if (postalChecked) {
             inputPostal.style.display = 'block';
             deliveryInstruction.style.display = "block";
             document.getElementById('cash-pay').disabled = true;
             document.getElementById('card-pay').checked = true;
             formTarjeta.style.display = "block";
-
         } else {
             postalWarning.style.display = "none";
             inputPostal.value = '';
@@ -86,294 +131,163 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('cash-pay').disabled = false;
         }
     }
-    // Añade event listeners a cada botón de radio
-    opcionesEntrega.forEach(radio => {
+
+    function actualizaFormTarjeta(){
+        const cardPayChecked = document.getElementById('card-pay').checked;
+        formTarjeta.style.display = cardPayChecked ? "block" : "none";
+        
+    }
+
+    function mostrarImagenCarritoVacio(){
+        var contenedorImagen =   `<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; height: auto; position: relative;">
+                                    <div  style="width: 50%; padding-top: 50%; position: relative;">
+                                        <img src="img/cart/default-cart-image.jpeg" alt="image that shows when there's no item in the cart" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; ">
+                                    </div>
+                                    <a href="lista-productos.html"><button type="button" class="btn btn-dark btn-lg"><i class="fa-solid fa-cart-shopping"></i>  Go shopping</button></a>
+                                </div> `
+        $('#detail').html(contenedorImagen);
+    }
+
+    function actualizarVisibilidadForm() {
+        if(totalCompra.textContent.trim() === '$0' || totalCompra.textContent.trim() === '$' || totalCompra.textContent.trim() === '$0.00'){
+            contenedorForm.style.display = "none";
+            mostrarImagenCarritoVacio();
+
+        }else{
+            contenedorForm.style.display = "block";
+        }
+    }
+
+    // Event Listeners
+    cardNumber.addEventListener('input', function() {
+        restrictLetters(cardNumber);
+        verificaTarjeta();
+        verificarLongitud();
+    });
+
+    cvc.addEventListener('input', function() {
+        restrictLetters(cvc);
+        verificarCVC();
+    });
+
+    expiryDate.addEventListener('input', function() {
+        restrictLetters(expiryDate);
+        verificaExpiracion();
+        verificaLargoExpiración();
+    });
+
+    inputPostal.addEventListener('input', function() {
+        restrictLetters(inputPostal);
+        verificaCodigoPostal();
+    });
+
+    titularInput.addEventListener('input', function() {
+        restricNumbers(titularInput);
+        verificarTitular();
+    });
+
+    document.querySelectorAll('input[name="tipo-entrega"]').forEach(radio => {
         radio.addEventListener('change', updateFieldVisibility);
     });
 
-    updateFieldVisibility();
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const opcionesPago = document.querySelectorAll('input[name="tipo-pago"]'); //REFERENCIA BOTONES DE RADIO, SE GUARDAN EN LISTA
-    const formTarjeta = document.getElementById('formulario-tarjeta')
-
-    // Función para actualizar la visibilidad del campo de postal
-    function updateFieldVisibility() {
-        if (document.getElementById('card-pay').checked) {
-            formTarjeta.style.display = "block";
-        } else {
-            formTarjeta.style.display = "none";
-        }
-    }
-    // Añade event listeners a cada botón de radio
-    opcionesPago.forEach(radio => {
-        radio.addEventListener('change', updateFieldVisibility);
+    document.querySelectorAll('input[name="tipo-pago"]').forEach(radio => {
+        radio.addEventListener('change', actualizaFormTarjeta);
     });
 
-    updateFieldVisibility();
-});
+    document.getElementById('formulario-compra').addEventListener('submit', function(event) {
+        let allValid = true;
 
-
-/////////////////////////////////////////////////////////////////////////////////////
-
-document.addEventListener('DOMContentLoaded', function() {
-    const inputCvc = document.getElementById('CVC');
-    inputCvc.addEventListener('input', verificarCVC);
-});
-
-////////////////////////////////////////////////////////
-
-document.addEventListener('DOMContentLoaded', function() {
-    const postalInput = document.getElementById('delivery-number');
-    postalInput.addEventListener('input', verificaCodigoPostal);
-});
-
-///////////////////////////////////////////////////////
-
-document.addEventListener('DOMContentLoaded', function() {
-    const titularInput = document.getElementById('titular');
-    titularInput.addEventListener('input', verificarTitular);
-});
-
-////////////////////////////////////////////////////////
-
-document.addEventListener('DOMContentLoaded', function() {
-    const input = document.getElementById('card-number');
-    input.addEventListener('input', verificarLongitud);
-});
-
-/////////////////////////EVENT LISTENER////////////////////////////////
-
-
-///////////////////////////////FUNCIONES////////////////////////////////
-function verificaCodigoPostal(){
-    const inputPostal = document.getElementById('delivery-number');
-    const postal = inputPostal.value.trim();
-    const postalWarning = document.getElementById('postal-warning');
-
-    if(postal.length === 6 || postal.length === 0){
-        postalWarning.style.display = "none";
-    }else{
-        postalWarning.style.display = "block";
-    }
-}
-
-function verificaExpiracion(){
-    const input = document.getElementById('expiry');
-
-    let value = input.value.replace(/\D/g, ''); 
-
-        if (value.length < 2) {
-            input.value = value;
-            return;
-        }
-
-        if (value.length > 2 && value.length <= 4) {
-            value = value.slice(0, 2) + '/' + value.slice(2);
-        } else if (value.length > 4) {
-            value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4);
-        }
-
-        if (input.value.length > 0 && input.value[input.value.length - 1] === '/') {
-            input.value = input.value.slice(0, -1);
-        }
-
-        input.value = value;
-}
-
-function verificaLargoExpiración(){
-    const expiryDate = document.getElementById('expiry').value; 
-    const expiryWarning = document.getElementById('expiry-warning');
-
-    if (expiryDate.length === 5 || expiryDate.length === 0) { // Verifica la longitud del valor
-        expiryWarning.style.visibility = "hidden";
-    } else {
-        expiryWarning.style.visibility = "visible";
-    }
-}
-
-function verificarTitular(){
-    const titularValue = document.getElementById('titular');
-    const titular= titularValue.value.trim();
-    const titularWarning = document.getElementById('titular-warning');
-    const titularPattern = /^([A-Za-zÁÉÍÓÚÑáéíóúñ]+)\s([A-Za-zÁÉÍÓÚÑáéíóúñ]+\s)?[A-Za-zÁÉÍÓÚÑáéíóúñ]+\s[A-Za-zÁÉÍÓÚÑáéíóúñ]+$/;
-
-    if (titular.length === 0) {
-        titularWarning.style.visibility = "hidden";
-    } 
-    // Verifica si el valor no cumple con el patrón
-    else if (!titularPattern.test(titular)) {
-        titularWarning.style.visibility = "visible";
-    } 
-    // Verifica si el valor cumple con el patrón
-    else {
-        titularWarning.style.visibility = "hidden";
-    }
-}
-
-function verificarCVC() {
-    const cvcInput = document.getElementById('CVC');
-    const cvc = cvcInput.value.replace(/\s+/g, '');
-    const cvcWarning = document.getElementById('cvc-warning');
-
-    if (cvc.length === 3 || cvc.length === 0) {
-        // Longitud es 0 o exactamente 3
-        cvcWarning.style.visibility = "hidden";
-    } else if (cvc.length < 3) {
-        // Longitud es menor a 3
-        cvcWarning.style.visibility = "visible";
-    } 
-}
-
-function verificaTarjeta() {
-    const numeroTarjeta = document.getElementById('card-number');
-    const numero = numeroTarjeta.value.replace(/\s+/g, ''); // Elimina espacios en blanco del código de tarjeta
-    const cardWarning = document.getElementById('card-warning');
-    const apiURL = `https://data.handyapi.com/bin/${numero}`;
-    const imagenTarjeta = document.getElementById('card-image');
-
-    fetch(apiURL)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-
-            if(data.Scheme === 'MASTERCARD'){
-                imagenTarjeta.src = 'img/cart/Mastercard.png';
-
-            }else if(data.Scheme === 'VISA'){
-                imagenTarjeta.src = 'img/cart/VISA.png';
-            }else{
-                imagenTarjeta.src = 'img/cart/credit-card.png';
-            }
-
-
-        })
-        .catch(error => {
-            console.error('There has been a problem with your fetch operation:', error);
-            imagenTarjeta.src = 'img/cart/credit-card.png'; 
-        });
-}
-
-function verificarLongitud(){
-    const input = document.getElementById('card-number');
-    const codigo = input.value.replace(/\s+/g, ''); // Elimina espacios en blanco del código de tarjeta
-    const cardWarning = document.getElementById('card-warning');
-    if (codigo.length === 16 || codigo.length === 0) {
-        // Longitud es 0 o exactamente 16
-        cardWarning.style.visibility = "hidden";
-    } else if (codigo.length < 16 && codigo.length > 0 ) {
-        // Longitud es menor a 16
-        cardWarning.style.visibility = "visible";
-        cardWarning.textContent = "Invalid card number (min 16 numbers)";
-    } else {
-        // Longitud es mayor a 16
-        cardWarning.style.visibility = "hidden";
-    }
-}
-
-function restrictLetters(input) {
-    // Elimina todas las letras, incluyendo ñ
-    input.value = input.value.replace(/[^\d]/g, '');
-}
-
-function restricNumbers(input) {
-    // Reemplaza cualquier número en el contenido del input con una cadena vacía
-    input.value = input.value.replace(/[0-9]/g, '');
-}
-
-///////////////PARA HACER QUE EL FORMULARIO APAREZCA Y DESAPAREZCA CUANDO SE TIENE 0 O $ ////////////////
-        const totalCompra = document.getElementById('total-compra');
-        const contenedorForm = document.getElementById('contenedor-formulario');
-
-        function actualizarVisibilidadForm() {
-            const contenido = totalCompra.textContent.trim();
-            if (contenido === '$0' || contenido === '$') {
-                contenedorForm.style.display = 'none';
-            } else {
-                contenedorForm.style.display = 'block';
+        if(storeRadio.checked){
+            $('#shipping-method-factura').html('Pick up in store');
+        }else{
+            $('#shipping-method-factura').html('Postal Delivery');
+            $('#payment-method-factura').html('By Card');
+            if (postalWarning.style.display === "block" || inputPostal.value.length === 0) {
+                allValid = false;
+                inputPostal.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                postalWarning.textContent = inputPostal.value.length === 0 ? 'Insert the delivery number' : postalWarning.textContent;
+                postalWarning.style.display = "block"
             }
         }
-        const observer = new MutationObserver(actualizarVisibilidadForm);
-
-        observer.observe(totalCompra, { childList: true, subtree: true });
-
-        actualizarVisibilidadForm();
-
-        document.getElementById('formulario-compra').addEventListener('submit', function(event) {
-            const cardWarning = document.getElementById('card-warning');
-            const cardNumber = document.getElementById('card-number');
-        
-            const titularWarning = document.getElementById('titular-warning');
-            const titularName = document.getElementById('titular');
-        
-            const cvcWarning = document.getElementById('cvc-warning');
-            const cvc = document.getElementById('CVC');
-        
-            const expiryWarning = document.getElementById('expiry-warning');
-            const expiryDate = document.getElementById('expiry');
-        
-            const postalRadio = document.getElementById('postal');
-            const postalNumber = document.getElementById('delivery-number')
-            const postalWarning = document.getElementById('postal-warning');
-        
-            if(cardWarning.style.visibility === "visible"){
-                event.preventDefault();
+        if(cardPayRadio.checked){
+            $('#payment-method-factura').html('By Card');
+            //Validaciónde cada campo
+            if (cardWarning.style.visibility === "visible" || cardNumber.value.length === 0) {
+                allValid = false;
                 cardNumber.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }else if(cardNumber.value.length === 0){
-                event.preventDefault();
+                cardWarning.textContent = cardNumber.value.length === 0 ? 'Invalid card number' : cardWarning.textContent;
                 cardWarning.style.visibility = "visible";
-                cardWarning.textContent = 'Insert the card number';
-            }
-        
-            if(titularWarning.style.visibility === "visible"){
-                event.preventDefault();
-                titularName.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }else if(titularName.value.length === 0){
-                event.preventDefault();
-                titularWarning.style.visibility = "visible";
-                titularWarning.textContent = 'Invalid titular name';
-            }
-        
-            if(cvcWarning.style.visibility === "visible"){
-                event.preventDefault();
-                cvc.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }else if(cvc.value.length === 0){
-                event.preventDefault();
-                cvcWarning.style.visibility = "visible";
-                cvcWarning.textContent = 'Insert CVC number';
-            }
-        
-            if(expiryWarning.style.visibility === "visible"){
-                event.preventDefault();
-                expiryDate.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }else if(expiryDate.value.length === 0){
-                event.preventDefault();
-                expiryWarning.style.visibility = "visible";
-                expiryWarning.textContent = 'Insert the expiry date';
-            }
-        
-            if(postalRadio.checked){
-                if(postalWarning.style.display === "block"){
-                    event.preventDefault();
-                    postalNumber.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }else if(postalNumber.value.length === 0){
-                    event.preventDefault();
-                    postalWarning.style.display = "block";
-                    postalWarning.textContent = 'Insert the delivery number';
-                }
                 
             }
-        
-        });
+            if (titularWarning.style.visibility === "visible" || titularInput.value.length === 0) {
+                allValid = false;
+                titularInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                titularWarning.textContent = titularInput.value.length === 0 ? 'Invalid titular name' : titularWarning.textContent;
+                titularWarning.style.visibility = "visible"
+            }
+            if (cvcWarning.style.visibility === "visible" || cvc.value.length === 0) {
+                allValid = false;
+                cvc.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                cvcWarning.textContent = cvc.value.length === 0 ? 'Insert CVC number' : cvcWarning.textContent;
+                cvcWarning.style.visibility = "visible"
+            }
+            if (expiryWarning.style.visibility === "visible" || expiryDate.value.length === 0) {
+                allValid = false;
+                expiryDate.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                expiryWarning.textContent = expiryDate.value.length === 0 ? 'Insert the expiry date' : expiryWarning.textContent;
+                expiryWarning.style.visibility = "visible"
+            }
+        }else{
+            $('#payment-method-factura').html('By Cash');
+        }
+            
+        if (allValid) {
+            llenarFactura(); 
+            const modal = new bootstrap.Modal(document.getElementById('modalFactura'));
+            modal.show();
+            removePurchase();
+            this.reset();
+            event.preventDefault();
+            actualizarVisibilidadForm();
+        } else {
+            event.preventDefault();
+        }
 
-function mostrarFactura(){
-    if (localStorage.getItem('compra')) {
-        cartArray = JSON.parse(localStorage.getItem('compra'))
+    });
+
+    function llenarFactura(){
+        var total = document.getElementById('total-compra');
+        var cart = JSON.parse(localStorage.getItem('compra'));
+        var price = 0;
+        var quantity = 0;
+        var subTotal = 0;
+        var cartRowHTML = '';
+        if(cart){
+            cart.forEach(function (item) {
+                price = parseFloat(item.price) || 0;
+                quantity = parseInt(item.cantidad) || 0;
+                subTotal = price * quantity;
+
+                cartRowHTML += `<div class="separador col-12 pt-3">
+                                    <div class="row">
+                                        <div class="col-4 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                            <div class="fs-5 text-center justify-content-center" id="product-name-receipt">${item.name}</div>
+                                        </div>
+                                        <div class="col-4 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                            <div class="fs-5 text-center justify-content-center" id="quantity">${quantity}</div>
+                                        </div>
+                                        <div class="col-4 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                            <div class="fs-5 text-center justify-content-center" id="price-product">&dollar;${subTotal.toFixed(2)}</div>
+                                        </div>
+                                    </div>
+                                </div>`;
+            });
+        }
+        $('#lista-legos-factura').html(cartRowHTML);
+        $('#total-factura').text(total.textContent.trim());
     }
-    
-}
+
+    // Observer para actualizar la visibilidad del formulario
+    const observer = new MutationObserver(actualizarVisibilidadForm);
+    observer.observe(totalCompra, { childList: true, subtree: true });
+});

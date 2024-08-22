@@ -74,7 +74,7 @@ function LimiteBoton(element) {
         let item = cartArray.findIndex((lego) => lego.id == element.Id)
 
         if (item != -1) {
-            if (cartArray[item].cantidad == element.Cantidad) {
+            if (cartArray[item].cantidad >= element.Cantidad) {
                 DesabilitarBoton(element.Id)
             }
             if (cartArray[item].cantidad == 0) {
@@ -85,7 +85,6 @@ function LimiteBoton(element) {
     }
 
 }
-
 /* habilitar boton o no de carrito*/
 function DesabilitarBoton(item) {
     $(`#${item}`).attr("disabled", true);
@@ -113,14 +112,13 @@ function displayStatus() {
 }
 
 
-
-
 /* Funcion que carga los legos de forma dinamica */
 /* Con JQuery */
 $(document).ready(function () {
-    displayLegos(legos)
 
-    /* Logica para desplegar los legocards filtrados por estado */
+   
+    displayLegos(legos)
+     /* Logica para desplegar los legocards filtrados por estado  */
     displayStatus()
     $('#filter').change(function () {
         var status = $(this).val();
@@ -136,5 +134,10 @@ $(document).ready(function () {
         displayLegos(filteredLegos);
     })
 
+    
 
+    
+    
 });
+
+

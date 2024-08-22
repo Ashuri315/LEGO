@@ -42,6 +42,8 @@ function addToCart(element) {
     $.notify(cartItem.name + " Added to the cart", "success")
 }
 
+
+
 /* Remueve el itel del carrito de compra */
 function removeCartItem(idElement) {
     var cartArray = JSON.parse(localStorage.getItem('compra'))
@@ -59,11 +61,12 @@ function removeCartItem(idElement) {
     showDetailShop()
 }
 
-function removePurchase(){
+function removePurchase() {
     if (localStorage.getItem('compra')) {
         localStorage.removeItem('compra');
         showDetailShop()
-        $.notify("Purchase deleted from the cart", "error")
+
+        $.notify("Successful Purchase", "success")
     }
 }
 
@@ -75,8 +78,11 @@ function updateButtons() {
         cart.forEach(function (item) {
             id = item.id
             limit = item.limit
-            if (item.cantidad <= 1) {
-                $(`#decrement${id}`).prop("disabled", true);
+            if (item.cantidad <= 0) {
+                /*  $(`#decrement${id}`).prop("disabled", true); */
+                removeCartItem(item.id)
+                showDetailShop()
+
             } else {
                 $(`#decrement${id}`).prop("disabled", false);
             }
@@ -85,52 +91,93 @@ function updateButtons() {
             } else {
                 $(`#increment${id}`).prop("disabled", false);
             }
-           
+
         });
     }
-    
+
 }
 
 
-function incrementButton(id, limit){
-        var counter = parseInt($(`#counter${id}`).val());
-        if (counter < limit) {
-            counter++;
-            $(`#counter${id}`).val(counter);
-            updateCartItem(id, counter)
-            updateButtons()
-        }
+function incrementButton(id, limit) {
+    var counter = parseInt($(`#counter${id}`).val());
+    if (counter < limit) {
+        counter++;
+        $(`#counter${id}`).val(counter);
+        updateCartItem(id, counter)
+        updateButtons()
+    }
 }
 
-function decrementButton(id){
-        var counter = parseInt($(`#counter${id}`).val());
-        if (counter > 1) {
-            counter--;
-            $(`#counter${id}`).val(counter);
-            updateCartItem(id, counter)
-            updateButtons()
-        }
+function decrementButton(id) {
+    var counter = parseInt($(`#counter${id}`).val());
+    if (counter > 0) {
+        counter--;
+        $(`#counter${id}`).val(counter);
+        updateButtons()
+        updateCartItem(id, counter)
+
+    }
 }
 
-
+/* Funcion normal (FUNCIONAL) */
 /* Actualiza el local storage con el nuevo item */
-function updateCartItem(element, counter){
+/* function updateCartItem(element, counter) {
     var idLego = element
-    var quantity = counter
+    var quantity = parseInt(counter)
     var nombre
     var cartArray = JSON.parse(localStorage.getItem('compra'))
-    if (quantity == 0 && quantity.trim()!='') {
-        return
-    }
+
     if (cartArray) {
         var itemIndex = cartArray.findIndex((obj) => obj.id == idLego)
-        cartArray[itemIndex].cantidad=quantity
+        cartArray[itemIndex].cantidad = quantity
         nombre = cartArray[itemIndex].name
     }
 
     localStorage.setItem('compra', JSON.stringify(cartArray))
     $.notify(nombre + " successfully updated", "info");
     showDetailShop()
+    if (quantity == 0) {
+        removeCartItem(idLego)
+        showDetailShop()
+
+    }
+} */
+
+/* FUNCION CON AJAX */
+function updateCartItem(element, counter) {
+    var idLego = element
+    var quantity = parseInt(counter)
+    var nombre
+    var cartArray = JSON.parse(localStorage.getItem('compra'))
+
+    if (cartArray) {
+        var itemIndex = cartArray.findIndex((obj) => obj.id == idLego)
+        cartArray[itemIndex].cantidad = quantity
+        nombre = cartArray[itemIndex].name
+    }
+    $.ajax({
+        url: 'https://jsonplaceholder.typicode.com/posts',
+        type: 'POST',
+        data: JSON.stringify({ id: idLego, quantity: quantity }),
+        contentType: 'application/json; charset=utf-8',
+        success: function (response) {
+            console.log('Respuesta de la API: ', response);
+            localStorage.setItem('compra', JSON.stringify(cartArray))
+            showDetailShop()
+            updateButtons()
+            $.notify(nombre + " successfully updated", "info");
+            if (quantity == 0 /* && quantity.trim()!='' */) {
+                removeCartItem(idLego)
+                showDetailShop()
+
+            }
+
+        },
+        error: function (xhr, status, error) {
+            console.error("Error al actualizar la cantidad: ", error)
+            $.notify(nombre + "Hubo un error al actualizar la cantidad", "error");
+        }
+    })
 }
 
 
@@ -151,7 +198,7 @@ function showDetailShop() {
             quantity = parseInt(item.cantidad) | 0
             subTotal = price * quantity
             itemCount += quantity
-            
+
 
             cartRowHTML += `<div class="container-product">
                 <div class="row gx-0">

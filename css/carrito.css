@@ -1,3 +1,32 @@
+.heading-1 {
+    font-size: 1.7rem;
+    align-self: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.heading-2{
+    font-size: 1rem;
+    align-self: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    color: rgb(56, 121, 206);
+}
+
+
+.heading-3{
+    font-size: 1.3rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: rgb(0, 0, 0);
+}
+
+main{
+    padding-top: 35px;
+}
+
 .encabezado-factura{
     display: flex;
     justify-content: space-between; /* Distribuye espacio entre los elementos */
@@ -17,12 +46,6 @@
     background-color: #f3f3f3;
 }
 
-.container-detalle-compra {
-    margin-right: 45px;
-    margin-left: 45px;
-    margin-bottom: 45px;
-}
-
 .separador-detalle {
     box-shadow: 0 4px 8px #0000004d;
     border-radius: 8px; 
@@ -40,15 +63,12 @@
 }
 
 .separador{
-    display: flex;
-    flex-direction: column;
     padding-top: 20px;
+    padding-bottom: 20px;
     border-bottom: 1px solid #b2b2b2;
     border-top: 1px solid #b2b2b2;
     justify-content: center;
 }
-
-
 
 .encabezado-input{
     display: flex;
@@ -64,4 +84,23 @@
 
 .ps-5 {
     padding-left: 2.5rem; 
+}
+
+/* Para el contador */
+.smaller-input{
+    width: 100%;
+
+}
+
+/* En factura */
+.contenedor {
+    margin-right: 60px;
+    margin-left: 60px;
+    align-items: center;
+}
+
+.container {
+	margin: 0 auto;
+    transition: padding 0.3s ease;
+    padding: 20px;
 }

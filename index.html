@@ -1,14 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage | LEGO</title>
+  <link rel="stylesheet" href="css/main-style.css">
+  <link rel="stylesheet" href="css/homepage.css">
+  <!-- Link boostrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
 </head>
+
 <body>
-    <a href="lista-productos.html">Productos</a>
 
-    <a href="preguntas-frecuentes.html">Preguntas</a>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-dark p-3">
+      <div class="container-fluid">
 
+        <a class="navbar-brand" href="index.html">
+          <img src="./img/logo-lego.png" alt="Logo" width="70" height="70">
+        </a>
+        <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-evenly" id="navbarSupportedContent" width="100">
+          <div class="d-flex ms-auto mt-2" role="search">
+            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button id="searchButton" onclick="search()" class="btn btn-primary" type="submit">
+              <img class="mb-1" src="./icons/Search.svg" alt="Search-icon" width="36" height="30">
+            </button>
+          </div>
+
+          <ul class="navbar-nav ms-auto mb-2 mt-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">
+                <img class="btn-navbar" src="./icons/profile.svg" alt="Profile-icon">
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="cart.html">
+                <img class="btn-navbar" src="./icons/shopping-cart.svg" alt="shopping-cart">
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+  <!--Barra de navegación-->
+  <nav class="navbar navbar-expand-lg bg-warning p-3 fs-5">
+    <div class="collapse navbar-collapse container-fluid justify-content-center">
+      <ul class="navbar-nav justify-content-evenly" style="width: 75%;">
+        <li class="nav-item">
+          <a class="nav-link active nav-animation" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active nav-animation" href="lista-productos.html">Shop</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active nav-animation" href="preguntas-frecuentes.html">Help</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active nav-animation" href="acerca-de.html">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active nav-animation" href="contacto.html">Contact Us</a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <!--Carousel-->
+  <div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="img/inicio/Carousel/img1.webp" class="d-block w-100 imagen-carousel" alt="woman with a lego car">
+      </div>
+      <div class="carousel-item">
+        <img src="img/inicio/Carousel/batman2.webp" class="d-block w-100 imagen-carousel" alt="batman-lego">
+      </div>
+      <div class="carousel-item">
+        <img src="img/inicio/Carousel/preschool.webp" class="d-block w-100 imagen-carousel" alt="kid playing with legos">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon bg-secondary rounded-circle" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon bg-secondary rounded-circle" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <!--Carousel-->
+  <main class="container-fluid p-3">
+    <!--Características del servicio-->
+    <section class="contenedor">
+      <p class="fs-4">LEGO is a Danish company specializing in the manufacture of construction toys,
+        globally known for its iconic plastic blocks that snap together. Founded in 1932,
+        LEGO has evolved to offer a wide range of products including themed sets, figures, and
+        interactive experiences, promoting creativity, imagination, and learning through play.</p>
+      <section>
+      <div class="contenedor-features">
+        <div class="card-feature">
+          <img src="img/inicio/charact-icons/secure.png" alt="">
+          <div class="feature-content">
+            <span class="fs-4">Contrareembolso</span>
+          </div>
+        </div>
+
+        <div class="card-feature">
+          <img src="img/inicio/charact-icons/send.png" alt="">
+          <div class="feature-content">
+            <span class="fs-4">Quick Send</span>
+          </div>
+        </div>
+
+        <div class="card-feature">
+          <img src="img/inicio/charact-icons/quality.png" alt="">
+          <div class="feature-content">
+            <span class="fs-4">Quality Products</span>
+          </div>
+        </div>
+        <div class="card-feature">
+          <img src="img/inicio/charact-icons/secure.png" alt="">
+          <div class="feature-content">
+            <span class="fs-4">Safe Payment</span>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="fs-2 mb-5 mt-5 text-center">Products Categories</h1>
+    <div id="graficoCircular" style="width: 90%; height: 400px; max-width: 800px; margin: auto;"></div>
+      
+    <!--Productos exclusivos-->
+    <h1 class="fs-2 mb-5 mt-5 text-center">Exclusive</h1>
+    <div id="exclusive-legos" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+      <div class="col">
+        <div class="card shadow-sm text-center">
+          <!-- Inicio Carrusel -->
+          <div id="carouselExample" class="carousel slide">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active container-img">
+                <a href="">
+                  <img src="img/image-not-found.jpg" class="d-block w-100" alt="image-not-found">
+                </a>
+              </div>
+
+              <div class="carousel-item container-img">
+                <a href="">
+                  <img src="img/image-not-found.jpg" class="d-block w-100" alt="image-not-found">
+                </a>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon bg-secondary rounded-circle" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon bg-secondary rounded-circle" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <!-- Fin carrusel -->
+          <div class="card-header">
+            <h4 class="card-title title-excesive link-animation">Title Lego</h4>
+          </div>
+
+          <div class="card-body">
+            <div class="d-flex justify-content-evenly">
+              <p class="card-title">Item:</p>
+              <p class="card-title">Review: </p>
+            </div>
+
+
+            <h1 class="card-title">&dollar;100000</h1>
+
+            <div class="d-grid gap-2">
+              <button type="button" class="btn btn-lg btn-primary w-100">Add to cart</button>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Productos exclusivos-->
+    <!--Productos new-->
+    <br>
+    <br>
+    <h1 class="fs-2 mb-5 mt-5 text-center">Hard to Find</h1>
+    <div id="hard-to-find-legos" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+      <div class="col">
+        <div class="card shadow-sm text-center">
+          <!-- Inicio Carrusel -->
+          <div id="carouselExample" class="carousel slide">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active container-img">
+                <a href="">
+                  <img src="img/image-not-found.jpg" class="d-block w-100" alt="image-not-found">
+                </a>
+              </div>
+
+              <div class="carousel-item container-img">
+                <a href="">
+                  <img src="img/image-not-found.jpg" class="d-block w-100" alt="image-not-found">
+                </a>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon bg-secondary rounded-circle" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon bg-secondary rounded-circle" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <!-- Fin carrusel -->
+          <div class="card-header">
+            <h4 class="card-title title-excesive link-animation">Title Lego</h4>
+          </div>
+
+          <div class="card-body">
+            <div class="d-flex justify-content-evenly">
+              <p class="card-title">Item:</p>
+              <p class="card-title">Review: </p>
+            </div>
+
+
+            <h1 class="card-title">&dollar;100000</h1>
+
+            <div class="d-grid gap-2">
+              <button type="button" class="btn btn-lg btn-primary w-100">Add to cart</button>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Productos new-->
+
+    <br>
+    <br>
+    </div> <!--Cierre el contenedor que da el margen a los productos-->
+
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="grupo-1">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+            <div class="logo-footer">
+              <a href="index.html">
+                <img src="img/logo-lego.png" alt="Logo-lego" style="align-self: center;">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-4 col-md-3 col-lg-3 col-xl-3">
+            <div class="box">
+              <h2 class="fs-4">Contact us</h2>
+              <p class="fs-5">lego@gmail.com</p>
+              <p class="fs-5">506 6030 4366</p>
+              <p class="fs-5">506 8599 2121</p>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-4 col-md-3 col-lg-3 col-xl-3">
+            <div class="box">
+              <h2 class="fs-4">Discover the magic of LEGO</h2>
+              <a href="lista-productos.html">
+                <p class="fs-5">Product catalog</p>
+              </a>
+              <a href="documents/Deliveries and returns policies.pdf">
+                <p class="fs-5">Terms and conditions</p>
+              </a>
+              <a href="preguntas-frecuentes.html">
+                <p class="fs-5">Frecuently questions</p>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+            <div class="box">
+              <h2 class="fs-4">Thanks for being part of LEGO</h2>
+              <p class="fs-5">Building a better world, one brick at a time. Discover endless creativity with LEGO sets
+                and
+                let your imagination soar.
+                Thank you for being part of the LEGO community. We strive to inspire creativity and fun through play.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="box">
+              <div class="red-social">
+                <a href="https://www.facebook.com/LEGO/">
+                  <img src="img/inicio/iconos-social-media/facebook (2).png" alt="facebook-logo">
+                </a>
+                <a href="https://www.instagram.com/lego/">
+                  <img src="img/inicio/iconos-social-media/instagram (1).png" alt="instagram-logo">
+                </a>
+                <a href="https://t.me/s/nerdcube/2712">
+                  <img src="img/inicio/iconos-social-media/telegram.png" alt="telegram-icon">
+                </a>
+                <a href="https://www.tiktok.com/@lego">
+                  <img src="img/inicio/iconos-social-media/tiktok.png" alt="tiktok-logo">
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div> <!--Fin row-->
+    </div>
+    <div class="grupo-2">
+      <small>&copy; 2024 <b>Lego</b> - All rights reserved </small>
+    </div>
+  </footer>
+  <script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous"></script>
+
+
+  <!-- Boostrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/lista-legos.js"></script>
+  <script src="js/homepage-graphic.js"></script>
+  <script src="js/new-products.js"></script>
+  <script src="json/Info Legos.js"></script>
+  <script src="js/compra.js"></script>
+  <script src="js/notify.min.js"></script>
 </body>
+
 </html>

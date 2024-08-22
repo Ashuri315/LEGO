@@ -14,7 +14,71 @@
 </head>
 
 <body>
+    <!-- As a heading -->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark p-3">
+            <div class="container-fluid">
 
+                <a class="navbar-brand" href="index.html">
+                    <img src="./img/logo-lego.png" alt="Logo-lego" width="70" height="70">
+                </a>
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-evenly" id="navbarSupportedContent" width="100">
+                    <div class="d-flex ms-auto mt-2" role="search">
+                        <input id="searchInput" class="form-control me-2" type="search" placeholder="Search"
+                            aria-label="Search">
+                        <button id="searchButton" onclick="search()" class="btn btn-primary" type="submit">
+                            <img class="mb-1" src="./icons/Search.svg" alt="Search-icon" width="36" height="30">
+                        </button>
+                    </div>
+
+                    <ul class="navbar-nav ms-auto mb-2 mt-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">
+                                <img class="btn-navbar" src="./icons/profile.svg" alt="profile-photo">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="cart.html">
+                                <img class="btn-navbar" src="./icons/shopping-cart.svg" alt="shopping-cart">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-warning p-3 fs-5">
+        <div class="collapse navbar-collapse container-fluid justify-content-center">
+            <ul class="navbar-nav justify-content-evenly" style="width: 75%;">
+                <li class="nav-item">
+                    <a class="nav-link active nav-animation" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active nav-animation" href="lista-productos.html">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active nav-animation" href="preguntas-frecuentes.html">Help</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active nav-animation" href="acerca-de.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active nav-animation" href="contacto.html">Contact Us</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
     <!-- Maquetacion de cada cuadro de pregunta -->
     <!-- <div class="container cajon-sombra p-4 mb-5 mt-5">
         <h2 class="text-center mb-5">Título del Artículo</h2>
@@ -29,139 +93,240 @@
             class="img-fluid">
         </div>
     </div> -->
-
-    <h2 class="mb-5 ms-5 mt-5">Frequently asked questions</h2>
-    <!-- Pregunta 1 -->
-    <div class="container cajon-sombra p-4 mb-5 mt-5">
-        <h2 class="text-center mb-5">What are the age recommendations for LEGO sets?</h2>
-        <div class="img-text-container">
-            <div class="text">
-                <p class="fs-5">
-                    LEGO sets come with specific age recommendations to ensure they are appropriate for different skill
-                    levels and adhere to safety standards. These recommendations are clearly indicated on the box or in
-                    the product description.
-                </p>
-            </div>
-            <img src="img/common questions/Question 1.jpg" alt="Boy playing with Legos" class="img-fluid"
-                style="max-width: 60%;">
-        </div>
-    </div>
-
-    <!-- Pregunta 2 -->
-    <div class="container cajon-sombra p-4 mb-5 mt-5">
-        <h2 class="text-center mb-5">How can I find building instructions for my LEGO set?</h2>
-        <div class="img-text-container">
-            <img src="img/common questions/Question 2.jpg" alt="Tablet with the Lego app" class="img-fluid">
-            <div class="text">
-                <p class="fs-5 text-end">
-                    To find building instructions for your LEGO set, you can visit the official LEGO website, which has
-                    a vast database of instructions for both new and older sets. Simply enter the set number or name in
-                    the search bar to access the PDF instructions. Alternatively, you can use the LEGO Builder app,
-                    which offers an interactive experience with features like 3D viewing, zooming, and rotating, making
-                    it easier to follow the building steps. Both options ensure you have all the guidance you need to
-                    complete your LEGO creations.
-                </p>
+    <main>
+        <h2 class="mb-5 ms-5 mt-5">Frequently asked questions</h2>
+        <!-- Pregunta 1 -->
+        <div class="container cajon-sombra p-4 mb-5 mt-5">
+            <h2 class="text-center mb-5">What are the age recommendations for LEGO sets?</h2>
+            <div class="img-text-container">
+                <div class="text fs-5">
+                    <p class="">
+                        LEGO sets come with specific age recommendations to ensure they are appropriate for different
+                        skill
+                        levels and adhere to safety standards. These recommendations are clearly indicated on the box or
+                        in
+                        the product description.
+                    </p>
+                    <p>This are the age categories we manage:</p>
+                    <ul>
+                        <li>6+</li>
+                        <li>9+</li>
+                        <li>12+</li>
+                        <li>16+</li>
+                        <li>18+</li>
+                    </ul>
+                </div>
+                <img src="img/common questions/Question 1.jpg" alt="Boy playing with Legos" class="img-fluid"
+                    style="max-width: 60%;">
             </div>
         </div>
-    </div>
 
-    <!-- Pregunta 3 -->
-    <div class="container cajon-sombra p-4 mb-5 mt-5">
-        <h2 class="text-center mb-5">What should I do if I am missing a piece from my LEGO set?</h2>
-        <div class="img-text-container">
-            <div class="text">
-                <p class="fs-5">
-                    If you discover that a piece is missing from your LEGO set, you can easily request a replacement
-                    through the Customer Service email lego.support@gmail.com. Simply provide the set number and details
-                    of the missing piece, and LEGO will send you the replacement part free of charge. This ensures you
-                    can complete your build without any interruptions.
-                </p>
-            </div>
-            <img src="img/common questions/Question 3.jpg" alt="World Lego" class="img-fluid">
-        </div>
-    </div>
-
-    <!-- Pregunta 4 -->
-    <div class="container cajon-sombra p-4 mb-5 mt-5">
-        <h2 class="text-center mb-5">Where can I buy individual LEGO bricks?</h2>
-        <div class="img-text-container">
-            <img src="img/common questions/Question 4.jpg" alt="A bunch of Legos" class="img-fluid">
-            <div class="text">
-                <p class="fs-5 text-end">
-                    You can buy individual LEGO bricks through the "Brick Link" website, where you
-                    can search for specific pieces you need. Additionally, visiting a LEGO store allows you to use the
-                    Pick a Brick wall, where you can select and purchase bricks in person. Both options provide a
-                    convenient way to find the exact pieces you need for your LEGO creations.
-                </p>
+        <!-- Pregunta 2 -->
+        <div class="container cajon-sombra p-4 mb-5 mt-5">
+            <h2 class="text-center mb-5">How can I find building instructions for my LEGO set?</h2>
+            <div class="img-text-container">
+                <img src="img/common questions/Question 2.jpg" alt="Tablet with the Lego app" class="img-fluid">
+                <div class="text">
+                    <p class="fs-5 text-end">
+                        To find building instructions for your LEGO set, you can visit the <a href="https://www.lego.com/en-us/service/buildinginstructions" class="links"><b>official LEGO website</b></a>, which
+                        has
+                        a vast database of instructions for both new and older sets. Simply enter the set number or name
+                        in
+                        the search bar to access the PDF instructions. Alternatively, you can use the <b>LEGO Builder app</b>,
+                        which offers an interactive experience with features like 3D viewing, zooming, and rotating,
+                        making
+                        it easier to follow the building steps. Both options ensure you have all the guidance you need
+                        to
+                        complete your LEGO creations.
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
 
-
-    <!-- Pregunta 5 -->
-    <div class="container cajon-sombra p-4 mb-5 mt-5">
-        <h2 class="text-center mb-5">Are there any LEGO events or exhibitions I can attend?</h2>
-        <div class="img-text-container">
-            <div class="text">
-                <p class="fs-5 text-end">
-                    Yes, LEGO frequently hosts events and exhibitions that cater to fans of all ages. These events
-                    often include interactive building activities, displays of impressive LEGO creations, and
-                    opportunities to meet other LEGO enthusiasts. Whether you’re interested in large conventions or
-                    smaller local gatherings, there’s likely an event that will spark your creativity and passion for
-                    LEGO.
-                </p>
-            </div>
-            <img src="img/common questions/Question 5.jpg" alt="Jazz Quartet Lego" class="img-fluid">
-        </div>
-    </div>
-
-    <!-- Pregunta 6 -->
-    <div class="container cajon-sombra p-4 mb-5 mt-5">
-        <h2 class="text-center mb-5">Can I recycle my old LEGO bricks?</h2>
-        <div class="img-text-container">
-            <img src="img/common questions/Question 6.jpg" alt="Wooden Minifigure" class="img-fluid">
-            <div class="text">
-                <p class="fs-5 text-end">
-                    Yes, you can recycle your old LEGO bricks through the LEGO Replay program. This initiative allows
-                    you to donate your used bricks, which are then cleaned and redistributed to children in need. By
-                    participating, you help give your LEGO bricks a new life and bring joy to kids who can benefit from
-                    creative play.
-                </p>
+        <!-- Pregunta 3 -->
+        <div class="container cajon-sombra p-4 mb-5 mt-5">
+            <h2 class="text-center mb-5">What should I do if I am missing a piece from my LEGO set?</h2>
+            <div class="img-text-container">
+                <div class="text">
+                    <p class="fs-5">
+                        If you discover that a piece is missing from your LEGO set, you can easily request a replacement
+                        through the Customer Service email <b>lego.support@gmail.com</b>. Simply provide the set number and
+                        details
+                        of the missing piece, and LEGO will send you the replacement part free of charge. This ensures
+                        you
+                        can complete your build without any interruptions.
+                    </p>
+                </div>
+                <img src="img/common questions/Question 3.jpg" alt="World Lego" class="img-fluid">
             </div>
         </div>
-    </div>
 
-    <!-- Pregunta 7 -->
-    <div class="container cajon-sombra p-4 mb-5 mt-5">
-        <h2 class="text-center mb-5">How can I share my LEGO creations with the community?</h2>
-        <div class="img-text-container">
-            <div class="text">
-                <p class="fs-5 text-end">
-                    You can share your LEGO creations with the community through various platforms. One popular way is
-                    to join LEGO Ideas, where you can submit your designs and potentially see them turned into official
-                    LEGO sets if they gain enough support. Additionally, you can share photos and videos of your builds
-                    on social media using hashtags like #LEGO or #LEGOCreations to reach a wider audience.
-                </p>
-            </div>
-            <img src="img/common questions/Question 7.jpg" alt="Tales of the Space LEGO" class="img-fluid">
-        </div>
-    </div>
-
-    <!-- Pregunta 8 -->
-    <div class="container cajon-sombra p-4 mb-5 mt-5">
-        <h2 class="text-center mb-5">What is the largest LEGO set with the most pieces?</h2>
-        <div class="img-text-container">
-            <img src="img/common questions/Question 8.jpg" alt="LEGO Art World Map" class="img-fluid">
-            <div class="text">
-                <p class="fs-5 text-end">
-                    The largest LEGO set by piece count is the LEGO Art World Map, which contains an impressive 11,695
-                    pieces. This set allows you to create a detailed and customizable map of the world, making it a
-                    unique and engaging project for LEGO enthusiasts. The high piece count provides a challenging and
-                    rewarding building experience, perfect for those who enjoy intricate and large-scale builds.
-                </p>
+        <!-- Pregunta 4 -->
+        <div class="container cajon-sombra p-4 mb-5 mt-5">
+            <h2 class="text-center mb-5">Where can I buy individual LEGO bricks?</h2>
+            <div class="img-text-container">
+                <img src="img/common questions/Question 4.jpg" alt="A bunch of Legos" class="img-fluid">
+                <div class="text">
+                    <p class="fs-5 text-end">
+                        You can buy individual LEGO bricks through the <a href="https://www.bricklink.com/v2/main.page" class="links">Brick Link</a>  website, where you
+                        can search for specific pieces you need. Additionally, visiting a LEGO store allows you to use
+                        the
+                        Pick a Brick wall, where you can select and purchase bricks in person. Both options provide a
+                        convenient way to find the exact pieces you need for your LEGO creations.
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
+
+
+        <!-- Pregunta 5 -->
+        <div class="container cajon-sombra p-4 mb-5 mt-5">
+            <h2 class="text-center mb-5">Are there any LEGO events or exhibitions I can attend?</h2>
+            <div class="img-text-container">
+                <div class="text">
+                    <p class="fs-5 text-start">
+                        Yes, LEGO frequently hosts events and exhibitions that cater to fans of all ages. These events
+                        often include interactive building activities, displays of impressive LEGO creations, and
+                        opportunities to meet other LEGO enthusiasts. Whether you’re interested in large conventions or
+                        smaller local gatherings, there’s likely an event that will spark your creativity and passion
+                        for
+                        LEGO.
+                    </p>
+                </div>
+                <img src="img/common questions/Question 5.jpg" alt="Jazz Quartet Lego" class="img-fluid">
+            </div>
+        </div>
+
+        <!-- Pregunta 6 -->
+        <div class="container cajon-sombra p-4 mb-5 mt-5">
+            <h2 class="text-center mb-5">Can I recycle my old LEGO bricks?</h2>
+            <div class="img-text-container">
+                <img src="img/common questions/Question 6.jpg" alt="Wooden Minifigure" class="img-fluid">
+                <div class="text">
+                    <p class="fs-5 text-end">
+                        Yes, you can recycle your old LEGO bricks through the LEGO Replay program. This initiative
+                        allows
+                        you to donate your used bricks, which are then cleaned and redistributed to children in need. By
+                        participating, you help give your LEGO bricks a new life and bring joy to kids who can benefit
+                        from
+                        creative play.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta 7 -->
+        <div class="container cajon-sombra p-4 mb-5 mt-5">
+            <h2 class="text-center mb-5">How can I share my LEGO creations with the community?</h2>
+            <div class="img-text-container">
+                <div class="text">
+                    <p class="fs-5 text-start">
+                        You can share your LEGO creations with the community through various platforms. One popular way
+                        is
+                        to join LEGO Ideas, where you can submit your designs and potentially see them turned into
+                        official
+                        LEGO sets if they gain enough support. Additionally, you can share photos and videos of your
+                        builds
+                        on social media using hashtags like #LEGO or #LEGOCreations to reach a wider audience.
+                    </p>
+                </div>
+                <img src="img/common questions/Question 7.jpg" alt="Tales of the Space LEGO" class="img-fluid">
+            </div>
+        </div>
+
+        <!-- Pregunta 8 -->
+        <div class="container cajon-sombra p-4 mb-5 mt-5">
+            <h2 class="text-center mb-5">What is the largest LEGO set with the most pieces?</h2>
+            <div class="img-text-container">
+                <img src="img/common questions/Question 8.jpg" alt="LEGO Art World Map" class="img-fluid">
+                <div class="text">
+                    <p class="fs-5 text-end">
+                        The largest LEGO set by piece count is the <b>LEGO Art World Map</b>, which contains an impressive
+                        <u>11,695 pieces</u>. This set allows you to create a detailed and customizable map of the world, making it a
+                        unique and engaging project for LEGO enthusiasts. The high piece count provides a challenging
+                        and
+                        rewarding building experience, perfect for those who enjoy intricate and large-scale builds.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="pie-pagina">
+        <div class="grupo-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                        <div class="logo-footer">
+                            <a href="index.html">
+                                <img src="img/logo-lego.png" alt="Logo-lego" style="align-self: center;">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-4 col-md-3 col-lg-3 col-xl-3">
+                        <div class="box">
+                            <h2 class="fs-4">Contact us</h2>
+                            <p class="fs-5">lego@gmail.com</p>
+                            <p class="fs-5">506 6030 4366</p>
+                            <p class="fs-5">506 8599 2121</p>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-4 col-md-3 col-lg-3 col-xl-3">
+                        <div class="box">
+                            <h2 class="fs-4">Discover the magic of LEGO</h2>
+                            <a href="lista-productos.html">
+                                <p class="fs-5">Product catalog</p>
+                            </a>
+                            <a href="documents/Deliveries and returns policies.pdf">
+                                <p class="fs-5">Terms and conditions</p>
+                            </a>
+                            <a href="preguntas-frecuentes.html">
+                                <p class="fs-5">Frecuently questions</p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                        <div class="box">
+                            <h2 class="fs-4">Thanks for being part of LEGO</h2>
+                            <p class="fs-5">Building a better world, one brick at a time. Discover endless creativity
+                                with LEGO sets
+                                and
+                                let your imagination soar.
+                                Thank you for being part of the LEGO community. We strive to inspire creativity and fun
+                                through play.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <div class="box">
+                            <div class="red-social">
+                                <a href="https://www.facebook.com/LEGO/">
+                                    <img src="img/inicio/iconos-social-media/facebook (2).png" alt="facebook-logo">
+                                </a>
+                                <a href="https://www.instagram.com/lego/">
+                                    <img src="img/inicio/iconos-social-media/instagram (1).png" alt="instagram-logo">
+                                </a>
+                                <a href="https://t.me/s/nerdcube/2712">
+                                    <img src="img/inicio/iconos-social-media/telegram.png" alt="telegram-logo">
+                                </a>
+                                <a href="https://www.tiktok.com/@lego">
+                                    <img src="img/inicio/iconos-social-media/tiktok.png" alt="tiktok-logo">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div> <!--Fin row-->
+        </div>
+        <div class="grupo-2">
+            <small>&copy; 2024 <b>Lego</b> - All rights reserved </small>
+        </div>
+    </footer>
 
     <!-- Boostrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

@@ -13,60 +13,207 @@
     <link rel="stylesheet" href="./css/main-style.css">
 
     <title>Acerca de</title>
-
-
-
 </head>
 
 <body>
+    <!-- As a heading -->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark p-3">
+            <div class="container-fluid">
 
-    <main>
-        <div class="content">
-            <h1>Visión conjunta</h1>
-            Ambos fundadores comparten una misma visión de un mundo más verde y ecológico, donde
-            cada persona puede disfrutar de la compañía de las plantas desde los hogares. Fundaron BioBurbuja con el
-            propósito de promover su visión.
-        </div>
-        <section class="content mt-5">
-            <div class="fundadores-container">
-                <!-- Carta 1 -->
-                <div class="fundador-card sombreado">
-                    <h4 class="fw-semibold mb-4 mt-3">Founder & Creative Director</h4>
-                    <img class="mb-4" src="img/About Us/ashley.jpg" width="90%" alt="">
-                    <h3 class="fw-semibold mb-4">Personal Information</h3>
-                    <p><b>Name:</b> Ashley Núñez Gutiérrez</p>
-                    <p><b>Identification: </b> 1-1907-0658</p>
-                    <p><b>Email: </b>asnunezgu@est.utn.ac.cr</p>
-                    <p><b>Contact Number: </b>8599-2121</p>
-                    <p><b>Age: </b>20 years old</p>
-                    <p>Ashley Gutiérrez es una apasionada por las plantas y el diseño urbano.
-                        Con más de 5 años de experiencia, Ashley ha realizado trabajos sostenibles
-                        y brindando servicios a lo largo de Costa Rica.
+                <a class="navbar-brand" href="index.html">
+                    <img src="./img/logo-lego.png" alt="Logo" width="70" height="70">
+                </a>
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                    </p>
+                <div class="collapse navbar-collapse justify-content-evenly" id="navbarSupportedContent" width="100">
+                    <div class="d-flex ms-auto mt-2" role="search">
+                        <input id="searchInput" class="form-control me-2" type="search" placeholder="Search-icon"
+                            aria-label="Search">
+                        <button id="searchButton" onclick="search()" class="btn btn-primary" type="submit">
+                            <img class="mb-1" src="./icons/Search.svg" alt="Search" width="36" height="30">
+                        </button>
+                    </div>
+
+                    <ul class="navbar-nav ms-auto mb-2 mt-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">
+                                <img class="btn-navbar" src="./icons/profile.svg" alt="Profile-icon">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="cart.html">
+                                <img class="btn-navbar" src="./icons/shopping-cart.svg" alt="shopping-cart">
+                            </a>
+                        </li>
+                    </ul>
                 </div>
 
-                <!-- Carta 2 -->
-                <div class="fundador-card sombreado">
-                    <h4 class="fw-semibold mb-4 mt-3">Co-founder & Administrative Manager</h4>
-                    <img class="mb-4" src="img/About Us/gerald.jpg" width="90%" alt="">
-                    <h3 class="fw-semibold mb-4">Personal Information</h3>
-                    <p><b>Name:</b> Gerald López Solano</p>
-                    <p><b>Identification: </b> 2-864-376</p>
-                    <p><b>Email: </b>gelopezso@est.utn.ac.cr</p>
-                    <p><b>Contact Number: </b>6030-4366</p>
-                    <p><b>Age: </b>19 years old</p>
-                    <p>Gerald López es un experto en administración y operaciones con una pasión por la sostenibilidad.
-                        Antes de
-                        ser co-fundador de BioBurbuja, Gerald gestionó varios proyectos en diversas ONGs, dónde
-                        desarrolló su
-                        interés por las plantas y la ecología.
-                    </p>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-warning p-3 fs-5">
+        <div class="collapse navbar-collapse container-fluid justify-content-center">
+            <ul class="navbar-nav justify-content-evenly" style="width: 75%;">
+                <li class="nav-item">
+                    <a class="nav-link active nav-animation" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active nav-animation" href="lista-productos.html">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active nav-animation" href="preguntas-frecuentes.html">Help</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active nav-animation" href="acerca-de.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active nav-animation" href="contacto.html">Contact Us</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    <main>
+        <div class="content">
+            <h1 class="mt-4 mb-4">Visión conjunta</h1>
+            <p class="fs-5">At LEGO, we share a clear and passionate vision: to build a future where creativity,
+                innovation, and fun come together to transform the world. We believe that the power of imagination
+                and collaboration can overcome any limits, and we are committed to fostering an environment where
+                ideas can flourish and become amazing realities.
+
+                Our mission is to inspire and empower people of all ages through interactive experiences and products
+                that challenge convention. We want to be a catalyst for creativity, a bridge that connects people and
+                encourages them to explore new possibilities, to learn and to grow together.</p>
+        </div>
+        <section class="mt-5">
+            <div class="fundadores-container">
+                <div class="container-fluid">
+                    <div class="row gx-0">
+                        <!-- Carta 1 -->
+                        <div class="fundador-card separador col-12 col-md-6 col-6 mb-4 justify-content-center">
+                            <h4 class="fw-semibold mb-4 mt-3 fs-2">Founder & Creative Director</h4>
+                            <img class="mb-4" src="img/acerca-de/ashley.jpg" width="90%" alt="">
+                            <h3 class="fw-semibold mb-4 fs-2">Personal Information</h3>
+                            <p class="fs-5"><b class="fs-5">Name:</b> Ashley Núñez Gutiérrez</p>
+                            <p class="fs-5"><b class="fs-5">Identification: </b> 1-1907-0658</p>
+                            <p class="fs-5"><b class="fs-5">Email: </b>asnunezgu@est.utn.ac.cr</p>
+                            <p class="fs-5"><b class="fs-5">Contact Number: </b>8599-2121</p>
+                            <p class="fs-5"><b class="fs-5">Age: </b>20 years old</p>
+                            <p class="fs-5">Ashley brings her boundless creativity and inspiring vision to the team.
+                                With a strong background in products design she has been the driving force behind the
+                                conceptualization
+                                and execution of our most innovative initiatives. Her passion for excellence and her
+                                ability to connect
+                                with people have been instrumental in building a brand
+                                that resonates with our customers.
+
+                            </p>
+                        </div>
+
+                        <!-- Carta 2 -->
+                        <div class="fundador-card separador col-12 col-md-6 col-6 mb-4 justify-content-center">
+                            <h4 class="fw-semibold mb-4 mt-3 fs-2">Co-founder & Manager</h4>
+                            <img class="mb-4" src="img/acerca-de/gerald.jpg" width="90%" alt="">
+                            <h3 class="fw-semibold mb-4 fs-2">Personal Information</h3>
+                            <p class="fs-5"><b class="fs-5">Name:</b> Gerald López Solano</p>
+                            <p class="fs-5"><b class="fs-5">Identification: </b> 2-864-376</p>
+                            <p class="fs-5"><b class="fs-5">Email: </b>gelopezso@est.utn.ac.cr</p>
+                            <p class="fs-5"><b class="fs-5">Contact Number: </b>6030-4366</p>
+                            <p class="fs-5"><b class="fs-5">Age: </b>19 years old</p>
+                            <p class="fs-5">Gerald López is an innovator with a strategic mind and a deep love of
+                                design.
+                                His experience in marketing and branding has allowed him to transform complex ideas into
+                                practical and exciting solutions. Their ability to see beyond the conventional and
+                                their meticulous focus on every detail are the foundation on which our unique offering
+                                is built.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
-
+    <footer class="pie-pagina">
+        <div class="grupo-1">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                <div class="logo-footer">
+                  <a href="index.html">
+                    <img src="img/logo-lego.png" alt="Logo-lego" style="align-self: center;">
+                  </a>
+                </div>
+              </div>
+    
+              <div class="col-12 col-sm-4 col-md-3 col-lg-3 col-xl-3">
+                <div class="box">
+                  <h2 class="fs-4">Contact us</h2>
+                  <p class="fs-5">lego@gmail.com</p>
+                  <p class="fs-5">506 6030 4366</p>
+                  <p class="fs-5">506 8599 2121</p>
+                </div>
+              </div>
+    
+              <div class="col-12 col-sm-4 col-md-3 col-lg-3 col-xl-3">
+                <div class="box">
+                  <h2 class="fs-4">Discover the magic of LEGO</h2>
+                  <a href="lista-productos.html">
+                    <p class="fs-5">Product catalog</p>
+                  </a>
+                  <a href="documents/Deliveries and returns policies.pdf">
+                    <p class="fs-5">Terms and conditions</p>
+                  </a>
+                  <a href="preguntas-frecuentes.html">
+                    <p class="fs-5">Frecuently questions</p>
+                  </a>
+                </div>
+              </div>
+    
+              <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <div class="box">
+                  <h2 class="fs-4">Thanks for being part of LEGO</h2>
+                  <p class="fs-5">Building a better world, one brick at a time. Discover endless creativity with LEGO sets
+                    and
+                    let your imagination soar.
+                    Thank you for being part of the LEGO community. We strive to inspire creativity and fun through play.
+                  </p>
+                </div>
+              </div>
+    
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div class="box">
+                  <div class="red-social">
+                    <a href="https://www.facebook.com/LEGO/">
+                      <img src="img/inicio/iconos-social-media/facebook (2).png" alt="facebook-logo">
+                    </a>
+                    <a href="https://www.instagram.com/lego/">
+                      <img src="img/inicio/iconos-social-media/instagram (1).png" alt="instagram-logo">
+                    </a>
+                    <a href="https://t.me/s/nerdcube/2712">
+                      <img src="img/inicio/iconos-social-media/telegram.png" alt="telegram-logo">
+                    </a>
+                    <a href="https://www.tiktok.com/@lego">
+                      <img src="img/inicio/iconos-social-media/tiktok.png" alt="tiktok-logo">
+                    </a>
+                  </div>
+                </div>
+              </div>
+    
+            </div>
+          </div> <!--Fin row-->
+        </div>
+        <div class="grupo-2">
+          <small>&copy; 2024 <b>Lego</b> - All rights reserved </small>
+        </div>
+      </footer>
     <!-- Boostrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
