@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function mostrarImagenCarritoVacio(){
         var contenedorImagen =   `<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; height: auto; position: relative;">
-                                    <div  style="width: 50%; padding-top: 50%; position: relative;">
+                                    <div  style="width: 60%; padding-top: 50%; position: relative;">
                                         <img src="img/cart/default-cart-image.jpeg" alt="image that shows when there's no item in the cart" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; ">
                                     </div>
                                     <a href="lista-productos.html"><button type="button" class="btn btn-dark btn-lg"><i class="fa-solid fa-cart-shopping"></i>  Go shopping</button></a>
