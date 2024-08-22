@@ -121,7 +121,7 @@ function decrementButton(id) {
 
 /* Funcion normal (FUNCIONAL) */
 /* Actualiza el local storage con el nuevo item */
-/* function updateCartItem(element, counter) {
+function updateCartItem(element, counter) {
     var idLego = element
     var quantity = parseInt(counter)
     var nombre
@@ -141,10 +141,10 @@ function decrementButton(id) {
         showDetailShop()
 
     }
-} */
+}
 
 /* FUNCION CON AJAX */
-function updateCartItem(element, counter) {
+/* function updateCartItem(element, counter) {
     var idLego = element
     var quantity = parseInt(counter)
     var nombre
@@ -166,7 +166,7 @@ function updateCartItem(element, counter) {
             showDetailShop()
             updateButtons()
             $.notify(nombre + " successfully updated", "info");
-            if (quantity == 0 /* && quantity.trim()!='' */) {
+            if (quantity == 0 ) {
                 removeCartItem(idLego)
                 showDetailShop()
 
@@ -178,7 +178,7 @@ function updateCartItem(element, counter) {
             $.notify(nombre + "Hubo un error al actualizar la cantidad", "error");
         }
     })
-}
+} */
 
 
 /* Para mostrar el detalle en la pagina del carrito */
